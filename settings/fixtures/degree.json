@@ -1,0 +1,30 @@
+[
+  {
+    "model": "settings.degree",
+    "pk": 1,
+    "fields": {
+      "name": "无"
+    }
+  },
+  {
+    "model": "settings.degree",
+    "pk": 2,
+    "fields": {
+      "name": "学士"
+    }
+  },
+  {
+    "model": "settings.degree",
+    "pk": 3,
+    "fields": {
+      "name": "硕士"
+    }
+  },
+  {
+    "model": "settings.degree",
+    "pk": 4,
+    "fields": {
+      "name": "博士"
+    }
+  }
+]

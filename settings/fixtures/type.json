@@ -1,0 +1,16 @@
+[
+  {
+    "model": "settings.type",
+    "pk": 1,
+    "fields": {
+      "name": "理论研究"
+    }
+  },
+  {
+    "model": "settings.type",
+    "pk": 2,
+    "fields": {
+      "name": "应用研究"
+    }
+  }
+]

@@ -1,0 +1,93 @@
+[
+  {
+    "model": "settings.subject",
+    "pk": 1,
+    "fields": {
+      "name": "哲学"
+    }
+  },
+  {
+    "model": "settings.subject",
+    "pk": 2,
+    "fields": {
+      "name": "经济学"
+    }
+  },
+  {
+    "model": "settings.subject",
+    "pk": 3,
+    "fields": {
+      "name": "法学"
+    }
+  },
+  {
+    "model": "settings.subject",
+    "pk": 4,
+    "fields": {
+      "name": "教育学"
+    }
+  },
+  {
+    "model": "settings.subject",
+    "pk": 5,
+    "fields": {
+      "name": "文学"
+    }
+  },
+  {
+    "model": "settings.subject",
+    "pk": 6,
+    "fields": {
+      "name": "历史学"
+    }
+  },
+  {
+    "model": "settings.subject",
+    "pk": 7,
+    "fields": {
+      "name": "理学"
+    }
+  },
+  {
+    "model": "settings.subject",
+    "pk": 8,
+    "fields": {
+      "name": "工学"
+    }
+  },
+  {
+    "model": "settings.subject",
+    "pk": 9,
+    "fields": {
+      "name": "农学"
+    }
+  },
+  {
+    "model": "settings.subject",
+    "pk": 10,
+    "fields": {
+      "name": "医学"
+    }
+  },
+  {
+    "model": "settings.subject",
+    "pk": 11,
+    "fields": {
+      "name": "军事学"
+    }
+  },
+  {
+    "model": "settings.subject",
+    "pk": 12,
+    "fields": {
+      "name": "管理学"
+    }
+  },
+  {
+    "model": "settings.subject",
+    "pk": 13,
+    "fields": {
+      "name": "艺术学"
+    }
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "model": "settings.phase",
+    "pk": 1,
+    "fields": {
+      "name": "立项阶段"
+    }
+  },
+  {
+    "model": "settings.phase",
+    "pk": 2,
+    "fields": {
+      "name": "中期检查阶段"
+    }
+  },
+  {
+    "model": "settings.phase",
+    "pk": 3,
+    "fields": {
+      "name": "结题阶段"
+    }
+  }
+]

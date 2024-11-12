@@ -18,6 +18,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Application definition
 
 INSTALLED_APPS = [
+    'simpleui',
+    'import_export',
+    'settings.apps.SettingsConfig',
+    'accounts.apps.AccountsConfig',
+    'projects.apps.ProjectsConfig',
+    'reviews.apps.ReviewsConfig',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -84,7 +90,7 @@ TIME_ZONE = "Asia/Shanghai"
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -99,3 +105,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass

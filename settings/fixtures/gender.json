@@ -1,0 +1,16 @@
+[
+  {
+    "model": "settings.gender",
+    "pk": 1,
+    "fields": {
+      "name": "男"
+    }
+  },
+  {
+    "model": "settings.gender",
+    "pk": 2,
+    "fields": {
+      "name": "女"
+    }
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "model": "accounts.role",
+    "fields": {
+      "name": "校级管理员"
+    }
+  },
+  {
+    "model": "accounts.role",
+    "fields": {
+      "name": "学院管理员"
+    }
+  },
+  {
+    "model": "accounts.role",
+    "fields": {
+      "name": "评审专家"
+    }
+  },
+  {
+    "model": "accounts.role",
+    "fields": {
+      "name": "申报人员"
+    }
+  }
+]

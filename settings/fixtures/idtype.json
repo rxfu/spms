@@ -1,0 +1,16 @@
+[
+  {
+    "model": "settings.idtype",
+    "pk": 1,
+    "fields": {
+      "name": "居民身份证"
+    }
+  },
+  {
+    "model": "settings.idtype",
+    "pk": 2,
+    "fields": {
+      "name": "其他证件"
+    }
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "model": "settings.series",
+    "pk": 1,
+    "fields": {
+      "name": "学科发展中心校级项目"
+    }
+  }
+]

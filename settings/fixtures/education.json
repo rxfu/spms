@@ -1,0 +1,30 @@
+[
+  {
+    "model": "settings.education",
+    "pk": 1,
+    "fields": {
+      "name": "无"
+    }
+  },
+  {
+    "model": "settings.education",
+    "pk": 2,
+    "fields": {
+      "name": "本科"
+    }
+  },
+  {
+    "model": "settings.education",
+    "pk": 3,
+    "fields": {
+      "name": "硕士研究生"
+    }
+  },
+  {
+    "model": "settings.education",
+    "pk": 4,
+    "fields": {
+      "name": "博士研究生"
+    }
+  }
+]
