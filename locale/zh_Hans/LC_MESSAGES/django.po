@@ -37,11 +37,11 @@ msgstr "首页"
 #: .\templates\admin\reviews\review\change_form.html:32
 #, python-format
 msgid "Add %(name)s"
-msgstr ""
+msgstr "新增 %(name)s"
 
 #: .\templates\admin\actions.html:22
 msgid "Run the selected action"
-msgstr ""
+msgstr "执行所选动作"
 
 #: .\templates\admin\actions.html:23
 msgid "Run"
@@ -49,87 +49,87 @@ msgstr "执行"
 
 #: .\templates\admin\actions.html:42
 msgid "Click here to select the objects across all pages"
-msgstr ""
+msgstr "单击此处选择所有页面中的对象"
 
 #: .\templates\admin\actions.html:43
 #, python-format
 msgid "Select all %(total_count)s %(module_name)s"
-msgstr ""
+msgstr "选择总共%(total_count)s个%(module_name)s模块"
 
 #: .\templates\admin\actions.html:49
 msgid "Clear selection"
-msgstr ""
+msgstr "清空选择"
 
 #: .\templates\admin\app_index.html:5 .\templates\admin\base_site.html:3
 #: .\templates\admin\index.html:7
 msgid "Django site admin"
-msgstr ""
+msgstr "Django 网站后台管理"
 
 #: .\templates\admin\app_index.html:30 .\templates\admin\base_site.html:6
 #: .\templates\admin\index.html:12
 msgid "Django administration"
-msgstr ""
+msgstr "Django 管理平台"
 
 #: .\templates\admin\app_list.html:12
 #, python-format
 msgid "Models in the %(name)s application"
-msgstr ""
+msgstr "%(name)s应用中的模块"
 
 #: .\templates\admin\app_list.html:47
 msgid "You don’t have permission to view or edit anything."
-msgstr ""
+msgstr "您没有查看或编辑权限"
 
 #: .\templates\admin\auth\user\add_form.html:7
 msgid ""
 "First, enter a username and password. Then, you’ll be able to edit more user "
 "options."
-msgstr ""
+msgstr "首先，请输入用户名和密码，然后才能编辑更多用户选项。"
 
 #: .\templates\admin\auth\user\add_form.html:9
 msgid "Enter a username and password."
-msgstr ""
+msgstr "输入用户名和密码"
 
 #: .\templates\admin\auth\user\change_password.html:25
 #: .\templates\admin\auth\user\change_password.html:55
 msgid "Change password"
-msgstr ""
+msgstr "修改密码"
 
 #: .\templates\admin\auth\user\change_password.html:44
 #, python-format
 msgid "Enter a new password for the user <strong>%(username)s</strong>."
-msgstr ""
+msgstr "输入用户<strong>%(username)s</strong>新密码。"
 
 #: .\templates\admin\change_form_object_tools.html:6
 #: .\templates\admin\object_history.html:21
 msgid "History"
-msgstr ""
+msgstr "历史"
 
 #: .\templates\admin\change_form_object_tools.html:12
 #: .\templates\admin\edit_inline\stacked.html:67
 #: .\templates\admin\edit_inline\tabular.html:89
 msgid "View on site"
-msgstr ""
+msgstr "查看网站"
 
 #: .\templates\admin\change_list.html:99
 msgid "Filters"
-msgstr ""
+msgstr "过滤器"
 
 #: .\templates\admin\change_list_results.html:28
 msgid "Select all rows"
-msgstr ""
+msgstr "选择所有行"
 
 #: .\templates\admin\change_list_results.html:42
 msgid "Toggle sorting"
-msgstr ""
+msgstr "切换排序"
 
 #: .\templates\admin\change_list_results.html:50
 msgid "Remove from sorting"
-msgstr ""
+msgstr "从排序中移除"
 
 #: .\templates\admin\change_list_results.html:56
 #, python-format
 msgid "Sorting priority: %(priority_number)s"
-msgstr ""
+msgstr "排序优先级：%(priority_number)s"
 
 #: .\templates\admin\delete_confirmation.html:37
 #, python-format
@@ -137,30 +137,30 @@ msgid ""
 "Deleting the %(object_name)s '%(escaped_object)s' would result in deleting "
 "related objects, but your account doesn't have permission to delete the "
 "following types of objects:"
-msgstr ""
+msgstr "正在删除%(object_name)s，删除'%(escaped_object)s'将导致相关对象也被删除，但是你的账号没有删除下列对象的权限："
 
 #: .\templates\admin\delete_confirmation.html:53
 #, python-format
 msgid ""
 "Deleting the %(object_name)s '%(escaped_object)s' would require deleting the "
 "following protected related objects:"
-msgstr ""
+msgstr "正在删除%(object_name)s，删除'%(escaped_object)s'要求删除下列受保护的相关对象："
 
 #: .\templates\admin\delete_confirmation.html:69
 #, python-format
 msgid ""
 "Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? "
 "All of the following related items will be deleted:"
-msgstr ""
+msgstr "你确定要删除%(object_name)s \"%(escaped_object)s\"吗？下列所有相关项都将被删除："
 
 #: .\templates\admin\delete_confirmation.html:76
 #: .\templates\admin\delete_selected_confirmation.html:71
 msgid "Objects"
-msgstr ""
+msgstr "对象"
 
 #: .\templates\admin\delete_selected_confirmation.html:27
 msgid "Delete multiple objects"
-msgstr ""
+msgstr "删除多个对象"
 
 #: .\templates\admin\delete_selected_confirmation.html:37
 #, python-format
@@ -168,127 +168,127 @@ msgid ""
 "Deleting the selected %(objects_name)s would result in deleting related "
 "objects, but your account doesn't have permission to delete the following "
 "types of objects:"
-msgstr ""
+msgstr "正在删除的已选对象%(objects_name)s将导致相关对象也被删除，但是你的账号没有删除下列对象的权限："
 
 #: .\templates\admin\delete_selected_confirmation.html:50
 #, python-format
 msgid ""
 "Deleting the selected %(objects_name)s would require deleting the following "
 "protected related objects:"
-msgstr ""
+msgstr "正在删除的已选对象%(objects_name)s要求删除下列受保护的相关对象："
 
 #: .\templates\admin\delete_selected_confirmation.html:64
 #, python-format
 msgid ""
 "Are you sure you want to delete the selected %(objects_name)s? All of the "
 "following objects and their related items will be deleted:"
-msgstr ""
+msgstr "你确定要删除已选对象%(objects_name)s吗？下列所有相关项都将被删除："
 
 #: .\templates\admin\edit_inline\stacked.html:53
 #: .\templates\admin\edit_inline\tabular.html:79
 msgid "Change"
-msgstr ""
+msgstr "修改"
 
 #: .\templates\admin\edit_inline\stacked.html:55
 #: .\templates\admin\edit_inline\tabular.html:81
 msgid "View"
-msgstr ""
+msgstr "查看"
 
 #: .\templates\admin\edit_inline\tabular.html:43
 msgid "Delete?"
-msgstr ""
+msgstr "删除？"
 
 #: .\templates\admin\edit_inline\tabular.html:160
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: .\templates\admin\filter.html:5
 #, python-format
 msgid " By %(filter_title)s "
-msgstr ""
+msgstr " 筛选%(filter_title)s "
 
 #: .\templates\admin\includes\object_delete_summary.html:5
 msgid "Summary"
-msgstr ""
+msgstr "概要"
 
 #: .\templates\admin\login.html:41 .\templates\admin\register.html:41
 #, python-format
 msgid ""
 "You are authenticated as %(username)s, but are not authorized to access this "
 "page. Would you like to login to a different account?"
-msgstr ""
+msgstr "用户%(username)s无权访问该页面。请问是否登录其他账号访问？"
 
 #: .\templates\admin\login.html:69
 msgid "Log in"
-msgstr ""
+msgstr "登录"
 
 #: .\templates\admin\login.html:79 .\templates\admin\register.html:72
 msgid "Forgotten your password or username?"
-msgstr ""
+msgstr "忘记密码或用户名？"
 
 #: .\templates\admin\nav_sidebar.html:17
 msgid "Menu"
-msgstr ""
+msgstr "菜单"
 
 #: .\templates\admin\object_history.html:34
 #: .\templates\admin\object_history.html:50
 msgid "Date/time"
-msgstr ""
+msgstr "日期/时间"
 
 #: .\templates\admin\object_history.html:38
 #: .\templates\admin\object_history.html:54
 msgid "User"
-msgstr ""
+msgstr "用户"
 
 #: .\templates\admin\object_history.html:42
 #: .\templates\admin\object_history.html:58
 msgid "Action"
-msgstr ""
+msgstr "动作"
 
 #: .\templates\admin\object_history.html:81
 msgid "entry"
 msgid_plural "entries"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "条目"
+msgstr[1] "条目"
 
 #: .\templates\admin\object_history.html:84
 msgid ""
 "This object doesn’t have a change history. It probably wasn’t added via this "
 "admin site."
-msgstr ""
+msgstr "该对象没有修改历史记录，可能不是通过后台管理网站添加的。"
 
 #: .\templates\admin\pagination.html:28
 msgid "Show all"
-msgstr ""
+msgstr "显示全部"
 
 #: .\templates\admin\pagination.html:35 .\templates\admin\submit_line.html:10
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: .\templates\admin\search_form.html:6
 msgid "Type to search"
-msgstr ""
+msgstr "要搜索的内容"
 
 #: .\templates\admin\submit_line.html:23
 msgid "Save and continue editing"
-msgstr ""
+msgstr "保存并继续编辑下一个"
 
 #: .\templates\admin\submit_line.html:25
 msgid "Save and view"
-msgstr ""
+msgstr "保存并查看"
 
 #: .\templates\admin\submit_line.html:34
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #: .\templates\admin\submit_line.html:40
 msgid "Save and add another"
-msgstr ""
+msgstr "保存并添加下一个"
 
 #: .\templates\admin\submit_line.html:46
 msgid "Save as new"
-msgstr ""
+msgstr "另存为"
 
 #: .\templates\admin\submit_line.html:55
 msgid "Delete"
-msgstr ""
+msgstr "删除"
