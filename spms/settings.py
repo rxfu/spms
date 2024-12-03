@@ -12,14 +12,24 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 
+from ckeditor_demo.settings import CKEDITOR_CONFIGS
+from django.urls import reverse_lazy
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Application definition
 
 INSTALLED_APPS = [
-    'simpleui',
-    'import_export',
+    'unfold',
+    'unfold.contrib.filters',
+    'unfold.contrib.forms',
+    'unfold.contrib.inlines',
+    'unfold.contrib.import_export',
+    'unfold.contrib.guardian',
+    'unfold.contrib.simple_history',
+    'ckeditor',
+    'ckeditor_uploader',
     'settings.apps.SettingsConfig',
     'accounts.apps.AccountsConfig',
     'projects.apps.ProjectsConfig',
@@ -37,6 +47,7 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
+    'django.middleware.locale.LocaleMiddleware',
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -92,6 +103,8 @@ USE_I18N = True
 
 USE_TZ = False
 
+LANGUAGES = [('zh-hans', '中文简体')]
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
@@ -101,10 +114,324 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Unfold Settings
+UNFOLD = {
+    'SITE_TITLE': '广西师范大学学科数据分析中心',
+    'SITE_HEADER': '学科数据分析中心',
+    'SITE_URL': '/',
+    "COLORS": {
+        "font": {
+            "subtle-light": "107 114 128",
+            "subtle-dark": "156 163 175",
+            "default-light": "75 85 99",
+            "default-dark": "209 213 219",
+            "important-light": "17 24 39",
+            "important-dark": "243 244 246",
+        },
+        "primary": {
+            "50": "#eff6ff",
+            "100": "#dbeafe",
+            "200": "#bfdbfe",
+            "300": "#93c5fd",
+            "400": "#60a5fa",
+            "500": "#3b82f6",
+            "600": "#2563eb",
+            "700": "#1d4ed8",
+            "800": "#1e40af",
+            "900": "#1e3a8a",
+            "950": "#172554",
+        },
+    },
+    'SIDEBAR': {
+        'show_search': False,
+        'show_all_applications': False,
+        'navigation': [
+            {
+                'title': '用户管理',
+                'separator': True,
+                'collapsible': False,
+                'items': [
+                    {
+                        'title': '用户资料',
+                        'icon': 'person',
+                        'link': reverse_lazy('admin:profile_list')
+                        # 'link': reverse_lazy('admin:accounts_profile_changelist'),
+                        # 'permission': lambda request: request.user.has_perm('accounts.view_profile')
+                    },
+                    {
+                        'title': '用户',
+                        'icon': 'manage_accounts',
+                        'link': reverse_lazy('admin:auth_user_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    },
+                    {
+                        'title': '用户组',
+                        'icon': 'group',
+                        'link': reverse_lazy('admin:auth_group_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    },
+                    {
+                        'title': '评审组',
+                        'icon': 'groups',
+                        'link': reverse_lazy('admin:accounts_team_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    }
+                ]
+            },
+            {
+                'title': '项目管理',
+                'separator': True,
+                'collapsible': False,
+                'items': [
+                    {
+                        'title': '项目信息列表',
+                        'icon': 'tactic',
+                        'link': reverse_lazy('admin:project_list'),
+                        'permission': lambda request: request.user.has_perm('informations.view_information')
+                    }
+                ]
+            },
+            {
+                'title': '项目评审管理',
+                'separator': True,
+                'collapsible': False,
+                'items': [
+                    {
+                        'title': '项目评审列表',
+                        'icon': 'planner_review',
+                        'link': reverse_lazy('admin:reviews_review_changelist'),
+                        'permission': lambda request: request.user.has_perm('reviews.view_review')
+                    }
+                ]
+            },
+            {
+                'title': '系统管理',
+                'separator': True,
+                'collapsible': True,
+                'items': [
+                    {
+                        'title': '性别',
+                        'icon': 'man',
+                        'link': reverse_lazy('admin:settings_gender_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    },
+                    {
+                        'title': '身份证件类型',
+                        'icon': 'id_card',
+                        'link': reverse_lazy('admin:settings_idtype_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    },
+                    {
+                        'title': '学历',
+                        'icon': 'history_edu',
+                        'link': reverse_lazy('admin:settings_education_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    },
+                    {
+                        'title': '学位',
+                        'icon': 'school',
+                        'link': reverse_lazy('admin:settings_degree_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    },
+                    {
+                        'title': '职称',
+                        'icon': 'work',
+                        'link': reverse_lazy('admin:settings_title_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    },
+                    {
+                        'title': '学科',
+                        'icon': 'subject',
+                        'link': reverse_lazy('admin:settings_subject_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    },
+                    {
+                        'title': '研究类型',
+                        'icon': 'science',
+                        'link': reverse_lazy('admin:settings_type_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    },
+                    {
+                        'title': '单位',
+                        'icon': 'house',
+                        'link': reverse_lazy('admin:settings_department_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    },
+                    {
+                        'title': '项目系列',
+                        'icon': 'newsstand',
+                        'link': reverse_lazy('admin:settings_series_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    },
+                    {
+                        'title': '项目阶段',
+                        'icon': 'floor',
+                        'link': reverse_lazy('admin:settings_phase_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    },
+                    {
+                        'title': '系统设置',
+                        'icon': 'settings',
+                        'link': reverse_lazy('admin:settings_setting_changelist'),
+                        'permission': lambda request: request.user.is_superuser
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full'
+    }
+}
+
+G_SCHOOL = 1
+G_COLLEGE = 2
+G_PANELIST = 3
+G_APPLICANT = 4
+#
+# # Jazzmin Settings
+# JAZZMIN_SETTINGS = {
+#     'site_title': '广西师范大学学科数据分析中心',
+#     'site_header': '学科数据分析中心',
+#     'site_brand': '学科数据分析中心',
+#     'welcome_sign': '欢迎来到广西师范大学学科数据分析中心',
+#     'copyright': '广西师范大学学科数据分析中心'
+# }
+#
+# # SimpleUI Settings
+# SIMPLEUI_HOME_INFO = False
+# SIMPLEUI_ANALYSIS = False
+# SIMPLEUI_CONFIG = {
+#     'system_keep': False,
+#     'menu_display': ['项目管理', '项目评审管理', '用户管理', '认证和授权', '系统管理'],
+#     'dynamic': True,
+#     'menus': [
+#         {
+#             'app': 'projects',
+#             'name': '项目管理',
+#             'icon': 'fas fa-globe',
+#             'models': [
+#                 {
+#                     'name': '项目信息列表',
+#                     'icon': 'fas fa-tasks',
+#                     'url': 'projects/information/'
+#                 }
+#             ]
+#         },
+#         {
+#             'app': 'reviews',
+#             'name': '项目评审管理',
+#             'icon': 'fas fa-table',
+#             'models': [
+#                 {
+#                     'name': '项目评审列表',
+#                     'icon': 'fas fa-industry',
+#                     'url': 'reviews/review/'
+#                 }
+#             ]
+#         },
+#         {
+#             'app': 'accounts',
+#             'name': '用户管理',
+#             'icon': 'fas fa-users-cog',
+#             'models': [
+#                 {
+#                     'name': '用户资料',
+#                     'icon': 'fas fa-user',
+#                     'url': 'accounts/profile/',
+#                     'permission': 'accounts.view_profile'
+#                 },
+#                 {
+#                     'name': '用户',
+#                     'icon': 'fas fa-user',
+#                     'url': 'auth/user/'
+#                 }, {
+#                     'name': '组',
+#                     'icon': 'fas fa-users',
+#                     'url': 'auth/group/'
+#
+#                 },
+#                 {
+#                     'name': '角色',
+#                     'icon': 'fas fa-user-tag',
+#                     'url': 'accounts/role/'
+#                 }
+#             ]
+#         },
+#         {
+#             'app': 'settings',
+#             'name': '系统管理',
+#             'icon': 'fas fa-cogs',
+#             'models': [
+#                 {
+#                     'name': '性别设置',
+#                     'icon': 'fas fa-male',
+#                     'url': 'settings/gender/'
+#                 },
+#                 {
+#                     'name': '身份证件类型设置',
+#                     'icon': 'fas fa-id-card',
+#                     'url': 'settings/idtype/'
+#                 },
+#                 {
+#                     'name': '学历设置',
+#                     'icon': 'fas fa-school',
+#                     'url': 'settings/education/'
+#                 },
+#                 {
+#                     'name': '学位设置',
+#                     'icon': 'fas fa-graduation-cap',
+#                     'url': 'settings/degree/'
+#                 },
+#                 {
+#                     'name': '职称设置',
+#                     'icon': 'fas fa-book-open',
+#                     'url': 'settings/title/'
+#                 },
+#                 {
+#                     'name': '学科设置',
+#                     'icon': 'fas fa-atom',
+#                     'url': 'settings/subject/'
+#                 },
+#                 {
+#                     'name': '研究类型设置',
+#                     'icon': 'fas fa-chalkboard',
+#                     'url': 'settings/type/'
+#                 },
+#                 {
+#                     'name': '单位设置',
+#                     'icon': 'fas fa-university',
+#                     'url': 'settings/department/'
+#                 },
+#                 {
+#                     'name': '项目系列设置',
+#                     'icon': 'fas fa-signal',
+#                     'url': 'settings/series/'
+#                 },
+#                 {
+#                     'name': '项目阶段设置',
+#                     'icon': 'fas fa-steam',
+#                     'url': 'settings/phase'
+#
+#                 }, {
+#                     'name': '系统设置',
+#                     'icon': 'fas fa-cog',
+#                     'url': 'settings/setting/'
+#                 },
+#             ]
+#         }
+#     ]
+# }
 
 try:
     from .local_settings import *

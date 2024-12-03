@@ -125,6 +125,7 @@ class Setting(models.Model):
     submit_end_time = models.DateTimeField('结束提交时间', null=True, blank=True)
     review_beg_time = models.DateTimeField('开始评审时间', null=True, blank=True)
     review_end_time = models.DateTimeField('结束评审时间', null=True, blank=True)
+    is_opened = models.BooleanField('是否开启', default=False)
     creator = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='setting_creator',
                                 verbose_name="创建者")
     updator = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='setting_updator',

@@ -1,0 +1,294 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-29 22:50+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\templates\admin\accounts\profile\change_form.html:18
+#: .\templates\admin\app_index.html:15
+#: .\templates\admin\auth\user\change_password.html:13
+#: .\templates\admin\base.html:23 .\templates\admin\change_form.html:18
+#: .\templates\admin\change_list.html:31
+#: .\templates\admin\delete_confirmation.html:17
+#: .\templates\admin\delete_selected_confirmation.html:17
+#: .\templates\admin\object_history.html:9
+#: .\templates\admin\projects\information\change_form.html:18
+#: .\templates\admin\reviews\review\change_form.html:18
+msgid "Home"
+msgstr "首页"
+
+#: .\templates\admin\accounts\profile\change_form.html:32
+#: .\templates\admin\change_form.html:32
+#: .\templates\admin\projects\information\change_form.html:32
+#: .\templates\admin\reviews\review\change_form.html:32
+#, python-format
+msgid "Add %(name)s"
+msgstr ""
+
+#: .\templates\admin\actions.html:22
+msgid "Run the selected action"
+msgstr ""
+
+#: .\templates\admin\actions.html:23
+msgid "Run"
+msgstr "执行"
+
+#: .\templates\admin\actions.html:42
+msgid "Click here to select the objects across all pages"
+msgstr ""
+
+#: .\templates\admin\actions.html:43
+#, python-format
+msgid "Select all %(total_count)s %(module_name)s"
+msgstr ""
+
+#: .\templates\admin\actions.html:49
+msgid "Clear selection"
+msgstr ""
+
+#: .\templates\admin\app_index.html:5 .\templates\admin\base_site.html:3
+#: .\templates\admin\index.html:7
+msgid "Django site admin"
+msgstr ""
+
+#: .\templates\admin\app_index.html:30 .\templates\admin\base_site.html:6
+#: .\templates\admin\index.html:12
+msgid "Django administration"
+msgstr ""
+
+#: .\templates\admin\app_list.html:12
+#, python-format
+msgid "Models in the %(name)s application"
+msgstr ""
+
+#: .\templates\admin\app_list.html:47
+msgid "You don’t have permission to view or edit anything."
+msgstr ""
+
+#: .\templates\admin\auth\user\add_form.html:7
+msgid ""
+"First, enter a username and password. Then, you’ll be able to edit more user "
+"options."
+msgstr ""
+
+#: .\templates\admin\auth\user\add_form.html:9
+msgid "Enter a username and password."
+msgstr ""
+
+#: .\templates\admin\auth\user\change_password.html:25
+#: .\templates\admin\auth\user\change_password.html:55
+msgid "Change password"
+msgstr ""
+
+#: .\templates\admin\auth\user\change_password.html:44
+#, python-format
+msgid "Enter a new password for the user <strong>%(username)s</strong>."
+msgstr ""
+
+#: .\templates\admin\change_form_object_tools.html:6
+#: .\templates\admin\object_history.html:21
+msgid "History"
+msgstr ""
+
+#: .\templates\admin\change_form_object_tools.html:12
+#: .\templates\admin\edit_inline\stacked.html:67
+#: .\templates\admin\edit_inline\tabular.html:89
+msgid "View on site"
+msgstr ""
+
+#: .\templates\admin\change_list.html:99
+msgid "Filters"
+msgstr ""
+
+#: .\templates\admin\change_list_results.html:28
+msgid "Select all rows"
+msgstr ""
+
+#: .\templates\admin\change_list_results.html:42
+msgid "Toggle sorting"
+msgstr ""
+
+#: .\templates\admin\change_list_results.html:50
+msgid "Remove from sorting"
+msgstr ""
+
+#: .\templates\admin\change_list_results.html:56
+#, python-format
+msgid "Sorting priority: %(priority_number)s"
+msgstr ""
+
+#: .\templates\admin\delete_confirmation.html:37
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would result in deleting "
+"related objects, but your account doesn't have permission to delete the "
+"following types of objects:"
+msgstr ""
+
+#: .\templates\admin\delete_confirmation.html:53
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would require deleting the "
+"following protected related objects:"
+msgstr ""
+
+#: .\templates\admin\delete_confirmation.html:69
+#, python-format
+msgid ""
+"Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? "
+"All of the following related items will be deleted:"
+msgstr ""
+
+#: .\templates\admin\delete_confirmation.html:76
+#: .\templates\admin\delete_selected_confirmation.html:71
+msgid "Objects"
+msgstr ""
+
+#: .\templates\admin\delete_selected_confirmation.html:27
+msgid "Delete multiple objects"
+msgstr ""
+
+#: .\templates\admin\delete_selected_confirmation.html:37
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would result in deleting related "
+"objects, but your account doesn't have permission to delete the following "
+"types of objects:"
+msgstr ""
+
+#: .\templates\admin\delete_selected_confirmation.html:50
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would require deleting the following "
+"protected related objects:"
+msgstr ""
+
+#: .\templates\admin\delete_selected_confirmation.html:64
+#, python-format
+msgid ""
+"Are you sure you want to delete the selected %(objects_name)s? All of the "
+"following objects and their related items will be deleted:"
+msgstr ""
+
+#: .\templates\admin\edit_inline\stacked.html:53
+#: .\templates\admin\edit_inline\tabular.html:79
+msgid "Change"
+msgstr ""
+
+#: .\templates\admin\edit_inline\stacked.html:55
+#: .\templates\admin\edit_inline\tabular.html:81
+msgid "View"
+msgstr ""
+
+#: .\templates\admin\edit_inline\tabular.html:43
+msgid "Delete?"
+msgstr ""
+
+#: .\templates\admin\edit_inline\tabular.html:160
+msgid "Remove"
+msgstr ""
+
+#: .\templates\admin\filter.html:5
+#, python-format
+msgid " By %(filter_title)s "
+msgstr ""
+
+#: .\templates\admin\includes\object_delete_summary.html:5
+msgid "Summary"
+msgstr ""
+
+#: .\templates\admin\login.html:41 .\templates\admin\register.html:41
+#, python-format
+msgid ""
+"You are authenticated as %(username)s, but are not authorized to access this "
+"page. Would you like to login to a different account?"
+msgstr ""
+
+#: .\templates\admin\login.html:69
+msgid "Log in"
+msgstr ""
+
+#: .\templates\admin\login.html:79 .\templates\admin\register.html:72
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: .\templates\admin\nav_sidebar.html:17
+msgid "Menu"
+msgstr ""
+
+#: .\templates\admin\object_history.html:34
+#: .\templates\admin\object_history.html:50
+msgid "Date/time"
+msgstr ""
+
+#: .\templates\admin\object_history.html:38
+#: .\templates\admin\object_history.html:54
+msgid "User"
+msgstr ""
+
+#: .\templates\admin\object_history.html:42
+#: .\templates\admin\object_history.html:58
+msgid "Action"
+msgstr ""
+
+#: .\templates\admin\object_history.html:81
+msgid "entry"
+msgid_plural "entries"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\templates\admin\object_history.html:84
+msgid ""
+"This object doesn’t have a change history. It probably wasn’t added via this "
+"admin site."
+msgstr ""
+
+#: .\templates\admin\pagination.html:28
+msgid "Show all"
+msgstr ""
+
+#: .\templates\admin\pagination.html:35 .\templates\admin\submit_line.html:10
+msgid "Save"
+msgstr ""
+
+#: .\templates\admin\search_form.html:6
+msgid "Type to search"
+msgstr ""
+
+#: .\templates\admin\submit_line.html:23
+msgid "Save and continue editing"
+msgstr ""
+
+#: .\templates\admin\submit_line.html:25
+msgid "Save and view"
+msgstr ""
+
+#: .\templates\admin\submit_line.html:34
+msgid "Close"
+msgstr ""
+
+#: .\templates\admin\submit_line.html:40
+msgid "Save and add another"
+msgstr ""
+
+#: .\templates\admin\submit_line.html:46
+msgid "Save as new"
+msgstr ""
+
+#: .\templates\admin\submit_line.html:55
+msgid "Delete"
+msgstr ""

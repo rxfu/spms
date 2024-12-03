@@ -1,24 +1,24 @@
 [
   {
-    "model": "accounts.role",
+    "model": "auth.group",
     "fields": {
-      "name": "校级管理员"
+      "name": "学校管理员"
     }
   },
   {
-    "model": "accounts.role",
+    "model": "auth.group",
     "fields": {
       "name": "学院管理员"
     }
   },
   {
-    "model": "accounts.role",
+    "model": "auth.group",
     "fields": {
       "name": "评审专家"
     }
   },
   {
-    "model": "accounts.role",
+    "model": "auth.group",
     "fields": {
       "name": "申报人员"
     }

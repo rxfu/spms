@@ -16,6 +16,7 @@ class Review(models.Model):
     is_agreed = models.BooleanField('是否同意立项', null=True, blank=True)
     panelist = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='review_panelist',
                                  verbose_name='评审专家')
+    is_confirmed = models.BooleanField('是否已经确认', default=False)
     creator = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='review_creator', verbose_name="创建者")
     updator = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='review_updator', verbose_name="更新者")
     create_time = models.DateTimeField('创建时间', auto_now_add=True)
