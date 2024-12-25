@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-29 22:50+0800\n"
+"POT-Creation-Date: 2024-12-20 23:32+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,155 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\templates\admin\accounts\profile\change_form.html:18
+#: .\admin.py:124 .\templatetags\unfold_list.py:325
+msgid "Select record"
+msgstr "选择记录"
+
+#: .\admin.py:156 .\admin.py:177
+msgid "Select value"
+msgstr "选择值"
+
+#: .\admin.py:539
+msgid "Select action"
+msgstr "选择动作"
+
+#: .\contrib\filters\admin.py:58 .\contrib\filters\admin.py:116
+msgid "All"
+msgstr "全部"
+
+#: .\contrib\filters\admin.py:82 .\contrib\filters\admin.py:105
+#: .\contrib\filters\admin.py:122 .\contrib\filters\admin.py:149
+#: .\contrib\filters\admin.py:166
+msgid "By {}"
+msgstr "筛选 {}"
+
+#: .\contrib\filters\forms.py:77
+msgid "Value"
+msgstr "值"
+
+#: .\contrib\filters\forms.py:93 .\contrib\filters\forms.py:133
+msgid "From"
+msgstr "从"
+
+#: .\contrib\filters\forms.py:100 .\contrib\filters\forms.py:143
+msgid "To"
+msgstr "到"
+
+#: .\contrib\filters\forms.py:169
+msgid "Date from"
+msgstr "日期从"
+
+#: .\contrib\filters\forms.py:174 .\contrib\filters\forms.py:190
+#: .\widgets.py:460
+msgid "Time"
+msgstr "时间"
+
+#: .\contrib\filters\forms.py:185
+msgid "Date to"
+msgstr "日期到"
+
+#: .\contrib\filters\templates\unfold\filters\filters_date_range.html:5
+#: .\contrib\filters\templates\unfold\filters\filters_datetime_range.html:5
+#: .\contrib\filters\templates\unfold\filters\filters_numeric_range.html:5
+#: .\contrib\filters\templates\unfold\filters\filters_numeric_single.html:5
+#: .\contrib\filters\templates\unfold\filters\filters_numeric_slider.html:7
+#, python-format
+msgid "By %(filter_title)s"
+msgstr "筛选 %(filter_title)s"
+
+#: .\contrib\filters\templates\unfold\filters\filters_numeric_slider.html:30
+msgid "Not enough data."
+msgstr "没有足够数据"
+
+#: .\contrib\forms\templates\unfold\forms\array.html:30
+msgid "Add new item"
+msgstr "新增一条记录"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:7
+msgid "Paragraph"
+msgstr "段落"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:11
+msgid "Underlined"
+msgstr "下划线"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:15
+msgid "Bold"
+msgstr "加粗"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:19
+msgid "Italic"
+msgstr "斜体"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:23
+msgid "Strike"
+msgstr "删除线"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:27
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:98
+msgid "Link"
+msgstr "链接"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:35
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:39
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:43
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:47
+msgid "Heading"
+msgstr "标题"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:55
+msgid "Quote"
+msgstr "双引号"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:59
+msgid "Code"
+msgstr "代码块"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:63
+msgid "Unordered list"
+msgstr "无序列表"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:67
+msgid "Ordered list"
+msgstr "有序列表"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:71
+msgid "Indent increase"
+msgstr "增加缩进"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:75
+msgid "Indent decrease"
+msgstr "减少缩进"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:83
+msgid "Undo"
+msgstr "撤销"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:87
+msgid "Redo"
+msgstr "重做"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:95
+msgid "Enter an URL"
+msgstr "输入一个URL"
+
+#: .\contrib\forms\templates\unfold\forms\helpers\toolbar.html:102
+msgid "Unlink"
+msgstr "取消链接"
+
+#: .\contrib\guardian\templates\admin\guardian\model\change_form.html:8
+#: .\contrib\guardian\templates\admin\guardian\model\obj_perms_manage.html:22
+#: .\contrib\guardian\templates\admin\guardian\model\obj_perms_manage_group.html:25
+#: .\contrib\guardian\templates\admin\guardian\model\obj_perms_manage_user.html:26
+msgid "Object permissions"
+msgstr "对象权限"
+
+#: .\contrib\guardian\templates\admin\guardian\model\obj_perms_manage.html:10
+#: .\contrib\guardian\templates\admin\guardian\model\obj_perms_manage_group.html:13
+#: .\contrib\guardian\templates\admin\guardian\model\obj_perms_manage_user.html:14
+#: .\contrib\import_export\templates\admin\import_export\export.html:17
+#: .\contrib\import_export\templates\admin\import_export\import.html:28
+#: .\contrib\simple_history\templates\simple_history\object_history_form.html:11
 #: .\templates\admin\app_index.html:15
 #: .\templates\admin\auth\user\change_password.html:13
 #: .\templates\admin\base.html:23 .\templates\admin\change_form.html:18
@@ -26,93 +174,359 @@ msgstr ""
 #: .\templates\admin\delete_confirmation.html:17
 #: .\templates\admin\delete_selected_confirmation.html:17
 #: .\templates\admin\object_history.html:9
-#: .\templates\admin\projects\information\change_form.html:18
-#: .\templates\admin\reviews\review\change_form.html:18
+#: .\templates\registration\password_change_done.html:12
+#: .\templates\registration\password_change_form.html:12
+#: .\templates\unfold\helpers\site_icon.html:6
+#: .\templates\unfold\helpers\site_icon.html:8
+#: .\templates\unfold\helpers\site_icon.html:10
+#: .\templates\unfold\helpers\site_logo.html:5
+#: .\templates\unfold\helpers\site_logo.html:7
+#: .\templates\unfold\helpers\site_logo.html:9
 msgid "Home"
 msgstr "首页"
 
-#: .\templates\admin\accounts\profile\change_form.html:32
-#: .\templates\admin\change_form.html:32
-#: .\templates\admin\projects\information\change_form.html:32
-#: .\templates\admin\reviews\review\change_form.html:32
+#: .\contrib\guardian\templates\admin\guardian\model\obj_perms_manage_group.html:39
+#: .\contrib\guardian\templates\admin\guardian\model\obj_perms_manage_user.html:40
+#: .\contrib\simple_history\templates\simple_history\object_history_list.html:10
+#: .\contrib\simple_history\templates\simple_history\object_history_list.html:44
+msgid "Object"
+msgstr "对象"
+
+#: .\contrib\guardian\templates\admin\guardian\model\obj_perms_manage_group.html:42
+#: .\contrib\guardian\templates\unfold\guardian\group_form.html:15
+msgid "Group"
+msgstr "组"
+
+#: .\contrib\guardian\templates\admin\guardian\model\obj_perms_manage_group.html:49
+#: .\contrib\guardian\templates\admin\guardian\model\obj_perms_manage_user.html:50
+#: .\templates\admin\pagination.html:35 .\templates\admin\submit_line.html:10
+msgid "Save"
+msgstr "保存"
+
+#: .\contrib\guardian\templates\admin\guardian\model\obj_perms_manage_user.html:43
+#: .\contrib\guardian\templates\unfold\guardian\group_form.html:33
+#: .\contrib\guardian\templates\unfold\guardian\user_form.html:15
+#: .\contrib\guardian\templates\unfold\guardian\user_form.html:33
+#: .\templates\admin\object_history.html:38
+#: .\templates\admin\object_history.html:54
+msgid "User"
+msgstr "用户"
+
+#: .\contrib\guardian\templates\unfold\guardian\group_form.html:7
+msgid "Group permissions"
+msgstr "组权限"
+
+#: .\contrib\guardian\templates\unfold\guardian\group_form.html:25
+#: .\contrib\guardian\templates\unfold\guardian\group_form.html:49
+#: .\contrib\guardian\templates\unfold\guardian\user_form.html:25
+#: .\contrib\guardian\templates\unfold\guardian\user_form.html:49
+#: .\templates\admin\object_history.html:42
+#: .\templates\admin\object_history.html:58
+msgid "Action"
+msgstr "动作"
+
+#: .\contrib\guardian\templates\unfold\guardian\group_form.html:51
+#: .\contrib\guardian\templates\unfold\guardian\user_form.html:51
+msgid "Edit"
+msgstr "编辑"
+
+#: .\contrib\guardian\templates\unfold\guardian\group_form.html:67
+msgid "Manage group"
+msgstr "管理组"
+
+#: .\contrib\guardian\templates\unfold\guardian\user_form.html:7
+msgid "User permissions"
+msgstr "用户权限"
+
+#: .\contrib\guardian\templates\unfold\guardian\user_form.html:67
+msgid "Manage user"
+msgstr "管理用户"
+
+#: .\contrib\import_export\templates\admin\import_export\change_form.html:8
+#: .\contrib\import_export\templates\admin\import_export\change_list_export_item.html:4
+#: .\contrib\import_export\templates\admin\import_export\export.html:28
+msgid "Export"
+msgstr "导出"
+
+#: .\contrib\import_export\templates\admin\import_export\change_list_import_item.html:4
+#: .\contrib\import_export\templates\admin\import_export\import.html:39
+msgid "Import"
+msgstr "导入"
+
+#: .\contrib\import_export\templates\admin\import_export\export.html:41
 #, python-format
-msgid "Add %(name)s"
-msgstr "新增 %(name)s"
+msgid ""
+"\n"
+"                    Export %(len)s selected item.\n"
+"                "
+msgid_plural ""
+"\n"
+"                    Export %(len)s selected items.\n"
+"                "
+msgstr[0] "\n                    导出 %(len)s 条已选记录。\n                "
+msgstr[1] "\n                    导出 %(len)s 条已选记录。\n                "
+
+#: .\contrib\import_export\templates\admin\import_export\export.html:60
+msgid "This exporter will export the following fields"
+msgstr "将导出以下字段"
+
+#: .\contrib\import_export\templates\admin\import_export\export.html:79
+#: .\contrib\import_export\templates\admin\import_export\import_form.html:21
+msgid "Submit"
+msgstr "提交"
+
+#: .\contrib\import_export\templates\admin\import_export\import_confirm.html:10
+msgid ""
+"Below is a preview of data to be imported. If you are satisfied with the "
+"results, click 'Confirm import'"
+msgstr "请预览导入数据列表，确定无误后请点击“确认导入”按钮"
+
+#: .\contrib\import_export\templates\admin\import_export\import_confirm.html:15
+msgid "Confirm import"
+msgstr "确认导入"
+
+#: .\contrib\import_export\templates\admin\import_export\import_errors.html:19
+msgid "Line number"
+msgstr "行号"
+
+#: .\contrib\import_export\templates\admin\import_export\import_preview.html:22
+msgid "New"
+msgstr "新建"
+
+#: .\contrib\import_export\templates\admin\import_export\import_preview.html:24
+msgid "Skipped"
+msgstr "跳过"
+
+#: .\contrib\import_export\templates\admin\import_export\import_preview.html:26
+#: .\templates\admin\submit_line.html:55
+msgid "Delete"
+msgstr "删除"
+
+#: .\contrib\import_export\templates\admin\import_export\import_preview.html:28
+msgid "Update"
+msgstr "更新"
+
+#: .\contrib\import_export\templates\admin\import_export\import_validation.html:7
+msgid "Some rows failed to validate"
+msgstr "某些行验证失败"
+
+#: .\contrib\import_export\templates\admin\import_export\import_validation.html:13
+msgid ""
+"Please correct these errors in your data where possible, then reupload it "
+"using the form above."
+msgstr "请修正错误数据并重新上传。"
+
+#: .\contrib\import_export\templates\admin\import_export\import_validation.html:22
+#: .\contrib\import_export\templates\admin\import_export\import_validation.html:40
+msgid "Row"
+msgstr "行"
+
+#: .\contrib\import_export\templates\admin\import_export\import_validation.html:26
+#: .\contrib\import_export\templates\admin\import_export\import_validation.html:44
+msgid "Errors"
+msgstr "错误"
+
+#: .\contrib\import_export\templates\admin\import_export\import_validation.html:65
+msgid "Non field specific"
+msgstr "无特定字段"
+
+#: .\contrib\import_export\templates\admin\import_export\resource_fields_list.html:6
+msgid "This exporter will export the following fields: "
+msgstr "将导出以下字段："
+
+#: .\contrib\import_export\templates\admin\import_export\resource_fields_list.html:8
+msgid "This importer will import the following fields: "
+msgstr "将导入以下字段"
+
+#. Translators: Model verbose name and instance representation,
+#. suitable to be an item in a list.
+#: .\contrib\inlines\admin.py:94
+#, python-format
+msgid "%(class_name)s %(instance)s"
+msgstr "%(class_name)s类的%(instance)s实例"
+
+#: .\contrib\inlines\admin.py:103
+msgid "and"
+msgstr "和"
+
+#: .\contrib\inlines\admin.py:106
+#, python-format
+msgid ""
+"Deleting %(class_name)s %(instance)s would require deleting the following "
+"protected related objects: %(related_objects)s"
+msgstr "删除%(class_name)s类的%(instance)s实例要求删除以下受保护的关联对象：%(related_objects)s"
+
+#: .\contrib\simple_history\templates\simple_history\object_history.html:8
+msgid ""
+"Choose a date from the list below to revert to a previous version of this "
+"object."
+msgstr "从以下列表中选择日期恢复到之前的对应版本。"
+
+#: .\contrib\simple_history\templates\simple_history\object_history.html:16
+msgid "This object doesn't have a change history."
+msgstr "该对象没有可变更历史。"
+
+#: .\contrib\simple_history\templates\simple_history\object_history_form.html:22
+#: .\templates\admin\change_form_object_tools.html:6
+#: .\templates\admin\object_history.html:21
+msgid "History"
+msgstr "历史"
+
+#: .\contrib\simple_history\templates\simple_history\object_history_form.html:26
+#: .\templates\admin\edit_inline\stacked.html:55
+#: .\templates\admin\edit_inline\tabular.html:81
+#: .\templates\unfold\helpers\app_list_default.html:38
+msgid "View"
+msgstr "查看"
+
+#: .\contrib\simple_history\templates\simple_history\object_history_form.html:29
+#: .\contrib\simple_history\templates\simple_history\submit_line.html:9
+msgid "Revert"
+msgstr "恢复"
+
+#: .\contrib\simple_history\templates\simple_history\object_history_form.html:48
+msgid ""
+"Press the 'Revert' button below to revert to this version of the object."
+msgstr "请点击下面的“恢复”按钮恢复到指定版本"
+
+#: .\contrib\simple_history\templates\simple_history\object_history_form.html:52
+msgid "Press the 'Change History' button below to edit the history."
+msgstr "请点击下面的“修改历史”按钮修改历史记录"
+
+#: .\contrib\simple_history\templates\simple_history\object_history_list.html:20
+#: .\contrib\simple_history\templates\simple_history\object_history_list.html:56
+#: .\templates\admin\object_history.html:34
+#: .\templates\admin\object_history.html:50
+msgid "Date/time"
+msgstr "日期/时间"
+
+#: .\contrib\simple_history\templates\simple_history\object_history_list.html:24
+#: .\contrib\simple_history\templates\simple_history\object_history_list.html:60
+msgid "Comment"
+msgstr "注释"
+
+#: .\contrib\simple_history\templates\simple_history\object_history_list.html:28
+#: .\contrib\simple_history\templates\simple_history\object_history_list.html:64
+msgid "Changed by"
+msgstr "修改者"
+
+#: .\contrib\simple_history\templates\simple_history\object_history_list.html:32
+#: .\contrib\simple_history\templates\simple_history\object_history_list.html:78
+msgid "Change reason"
+msgstr "修改原因"
+
+#: .\contrib\simple_history\templates\simple_history\object_history_list.html:36
+#: .\contrib\simple_history\templates\simple_history\object_history_list.html:82
+msgid "Changes"
+msgstr "修改"
+
+#: .\contrib\simple_history\templates\simple_history\object_history_list.html:74
+msgid "None"
+msgstr "无"
+
+#: .\contrib\simple_history\templates\simple_history\submit_line.html:15
+msgid "Change History"
+msgstr "修改历史"
+
+#: .\contrib\simple_history\templates\simple_history\submit_line.html:20
+#: .\templates\admin\submit_line.html:34
+msgid "Close"
+msgstr "关闭"
+
+#: .\forms.py:44
+msgid "Select action to run"
+msgstr "选择运行动作"
+
+#: .\forms.py:102
+msgid ""
+"Raw passwords are not stored, so there is no way to see this user’s "
+"password, but you can change the password using <a href=\"{}\" class=\"text-"
+"primary-600 dark:text-primary-500\">this form</a>."
+msgstr "未保存原始密码，也无法查看该用户密码，修改密码请使用<a href=\"{}\" class=\"text-primary-600 dark:text-primary-500\">该表单</a>"
 
 #: .\templates\admin\actions.html:22
 msgid "Run the selected action"
-msgstr "执行所选动作"
+msgstr "运行所选动作"
 
 #: .\templates\admin\actions.html:23
 msgid "Run"
-msgstr "执行"
+msgstr "运行"
 
 #: .\templates\admin\actions.html:42
 msgid "Click here to select the objects across all pages"
-msgstr "单击此处选择所有页面中的对象"
+msgstr "点击选择所有对象"
 
 #: .\templates\admin\actions.html:43
 #, python-format
 msgid "Select all %(total_count)s %(module_name)s"
-msgstr "选择总共%(total_count)s个%(module_name)s模块"
+msgstr "选择所有%(total_count)s个%(module_name)s模块"
 
 #: .\templates\admin\actions.html:49
 msgid "Clear selection"
 msgstr "清空选择"
 
 #: .\templates\admin\app_index.html:5 .\templates\admin\base_site.html:3
-#: .\templates\admin\index.html:7
+#: .\templates\admin\index.html:7 .\templates\unfold\layouts\base.html:11
 msgid "Django site admin"
-msgstr "Django 网站后台管理"
+msgstr "Django网站管理后台"
 
 #: .\templates\admin\app_index.html:30 .\templates\admin\base_site.html:6
-#: .\templates\admin\index.html:12
+#: .\templates\admin\index.html:12 .\templates\unfold\layouts\base.html:6
 msgid "Django administration"
-msgstr "Django 管理平台"
+msgstr "Django管理页面"
 
 #: .\templates\admin\app_list.html:12
+#: .\templates\unfold\helpers\app_list_default.html:9
 #, python-format
 msgid "Models in the %(name)s application"
-msgstr "%(name)s应用中的模块"
+msgstr "%(name)s应用中的模型"
 
 #: .\templates\admin\app_list.html:47
+#: .\templates\unfold\helpers\app_list.html:98
+#: .\templates\unfold\helpers\app_list_default.html:59
 msgid "You don’t have permission to view or edit anything."
-msgstr "您没有查看或编辑权限"
+msgstr "无查看或编辑权限"
 
 #: .\templates\admin\auth\user\add_form.html:7
 msgid ""
 "First, enter a username and password. Then, you’ll be able to edit more user "
 "options."
-msgstr "首先，请输入用户名和密码，然后才能编辑更多用户选项。"
+msgstr "请输入用户名和密码，再编辑更多用户信息。"
 
 #: .\templates\admin\auth\user\add_form.html:9
 msgid "Enter a username and password."
-msgstr "输入用户名和密码"
+msgstr "请输入用户名和密码"
 
 #: .\templates\admin\auth\user\change_password.html:25
 #: .\templates\admin\auth\user\change_password.html:55
+#: .\templates\registration\password_change_done.html:15
+#: .\templates\registration\password_change_form.html:15
+#: .\templates\registration\password_change_form.html:46
+#: .\templates\unfold\helpers\account_links.html:23
 msgid "Change password"
 msgstr "修改密码"
 
 #: .\templates\admin\auth\user\change_password.html:44
 #, python-format
 msgid "Enter a new password for the user <strong>%(username)s</strong>."
-msgstr "输入用户<strong>%(username)s</strong>新密码。"
+msgstr "为用户<strong>%(username)s</strong>输入一个新密码。"
 
-#: .\templates\admin\change_form_object_tools.html:6
-#: .\templates\admin\object_history.html:21
-msgid "History"
-msgstr "历史"
+#: .\templates\admin\change_form.html:32
+#: .\templates\unfold\helpers\add_link.html:5
+#: .\templates\unfold\helpers\add_link.html:8
+#, python-format
+msgid "Add %(name)s"
+msgstr "新增%(name)s"
 
 #: .\templates\admin\change_form_object_tools.html:12
 #: .\templates\admin\edit_inline\stacked.html:67
 #: .\templates\admin\edit_inline\tabular.html:89
 msgid "View on site"
-msgstr "查看网站"
+msgstr "查看"
 
 #: .\templates\admin\change_list.html:99
 msgid "Filters"
-msgstr "过滤器"
+msgstr "筛选"
 
 #: .\templates\admin\change_list_results.html:28
 msgid "Select all rows"
@@ -124,7 +538,7 @@ msgstr "切换排序"
 
 #: .\templates\admin\change_list_results.html:50
 msgid "Remove from sorting"
-msgstr "从排序中移除"
+msgstr "移除排序"
 
 #: .\templates\admin\change_list_results.html:56
 #, python-format
@@ -137,21 +551,21 @@ msgid ""
 "Deleting the %(object_name)s '%(escaped_object)s' would result in deleting "
 "related objects, but your account doesn't have permission to delete the "
 "following types of objects:"
-msgstr "正在删除%(object_name)s，删除'%(escaped_object)s'将导致相关对象也被删除，但是你的账号没有删除下列对象的权限："
+msgstr "删除对象%(object_name)s '%(escaped_object)s'会导致关联对象也被删除，但是你没有删除以下对象类型的权限："
 
 #: .\templates\admin\delete_confirmation.html:53
 #, python-format
 msgid ""
 "Deleting the %(object_name)s '%(escaped_object)s' would require deleting the "
 "following protected related objects:"
-msgstr "正在删除%(object_name)s，删除'%(escaped_object)s'要求删除下列受保护的相关对象："
+msgstr "删除对象%(object_name)s '%(escaped_object)s'要求删除以下受保护关联对象"
 
 #: .\templates\admin\delete_confirmation.html:69
 #, python-format
 msgid ""
 "Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? "
 "All of the following related items will be deleted:"
-msgstr "你确定要删除%(object_name)s \"%(escaped_object)s\"吗？下列所有相关项都将被删除："
+msgstr "确定要删除%(object_name)s \"%(escaped_object)s\"？下列所有关联对象将被删除："
 
 #: .\templates\admin\delete_confirmation.html:76
 #: .\templates\admin\delete_selected_confirmation.html:71
@@ -168,31 +582,27 @@ msgid ""
 "Deleting the selected %(objects_name)s would result in deleting related "
 "objects, but your account doesn't have permission to delete the following "
 "types of objects:"
-msgstr "正在删除的已选对象%(objects_name)s将导致相关对象也被删除，但是你的账号没有删除下列对象的权限："
+msgstr "删除对象%(objects_name)s会导致关联对象也被删除，但是你没有删除以下对象类型的权限："
 
 #: .\templates\admin\delete_selected_confirmation.html:50
 #, python-format
 msgid ""
 "Deleting the selected %(objects_name)s would require deleting the following "
 "protected related objects:"
-msgstr "正在删除的已选对象%(objects_name)s要求删除下列受保护的相关对象："
+msgstr "删除对象%(objects_name)s要求删除以下受保护关联对象："
 
 #: .\templates\admin\delete_selected_confirmation.html:64
 #, python-format
 msgid ""
 "Are you sure you want to delete the selected %(objects_name)s? All of the "
 "following objects and their related items will be deleted:"
-msgstr "你确定要删除已选对象%(objects_name)s吗？下列所有相关项都将被删除："
+msgstr "确定要删除%(objects_name)s？下列所有关联对象将被删除："
 
 #: .\templates\admin\edit_inline\stacked.html:53
 #: .\templates\admin\edit_inline\tabular.html:79
+#: .\templates\unfold\helpers\app_list_default.html:42
 msgid "Change"
 msgstr "修改"
-
-#: .\templates\admin\edit_inline\stacked.html:55
-#: .\templates\admin\edit_inline\tabular.html:81
-msgid "View"
-msgstr "查看"
 
 #: .\templates\admin\edit_inline\tabular.html:43
 msgid "Delete?"
@@ -205,45 +615,38 @@ msgstr "移除"
 #: .\templates\admin\filter.html:5
 #, python-format
 msgid " By %(filter_title)s "
-msgstr " 筛选%(filter_title)s "
+msgstr "筛选 %(filter_title)s "
 
 #: .\templates\admin\includes\object_delete_summary.html:5
 msgid "Summary"
 msgstr "概要"
 
-#: .\templates\admin\login.html:41 .\templates\admin\register.html:41
+#: .\templates\admin\login.html:31
+msgid "Welcome back to"
+msgstr "欢迎回到"
+
+#: .\templates\admin\login.html:42
 #, python-format
 msgid ""
 "You are authenticated as %(username)s, but are not authorized to access this "
 "page. Would you like to login to a different account?"
-msgstr "用户%(username)s无权访问该页面。请问是否登录其他账号访问？"
+msgstr "用户%(username)s无权访问该页面。请问是否重新登录另一个账号？"
 
-#: .\templates\admin\login.html:69
+#: .\templates\admin\login.html:63
 msgid "Log in"
 msgstr "登录"
 
-#: .\templates\admin\login.html:79 .\templates\admin\register.html:72
+#: .\templates\admin\login.html:72
 msgid "Forgotten your password or username?"
 msgstr "忘记密码或用户名？"
+
+#: .\templates\admin\login.html:84
+msgid "Return to site"
+msgstr "返回网站"
 
 #: .\templates\admin\nav_sidebar.html:17
 msgid "Menu"
 msgstr "菜单"
-
-#: .\templates\admin\object_history.html:34
-#: .\templates\admin\object_history.html:50
-msgid "Date/time"
-msgstr "日期/时间"
-
-#: .\templates\admin\object_history.html:38
-#: .\templates\admin\object_history.html:54
-msgid "User"
-msgstr "用户"
-
-#: .\templates\admin\object_history.html:42
-#: .\templates\admin\object_history.html:58
-msgid "Action"
-msgstr "动作"
 
 #: .\templates\admin\object_history.html:81
 msgid "entry"
@@ -255,40 +658,212 @@ msgstr[1] "条目"
 msgid ""
 "This object doesn’t have a change history. It probably wasn’t added via this "
 "admin site."
-msgstr "该对象没有修改历史记录，可能不是通过后台管理网站添加的。"
+msgstr "该对象没有修改历史记录，也许它不是通过管理后台添加的。"
 
 #: .\templates\admin\pagination.html:28
+#: .\templates\unfold\helpers\welcomemsg.html:14
 msgid "Show all"
 msgstr "显示全部"
 
-#: .\templates\admin\pagination.html:35 .\templates\admin\submit_line.html:10
-msgid "Save"
-msgstr "保存"
-
 #: .\templates\admin\search_form.html:6
 msgid "Type to search"
-msgstr "要搜索的内容"
+msgstr "请键入进行搜索"
 
 #: .\templates\admin\submit_line.html:23
 msgid "Save and continue editing"
-msgstr "保存并继续编辑下一个"
+msgstr "保存并继续编辑下一条"
 
 #: .\templates\admin\submit_line.html:25
 msgid "Save and view"
 msgstr "保存并查看"
 
-#: .\templates\admin\submit_line.html:34
-msgid "Close"
-msgstr "关闭"
-
 #: .\templates\admin\submit_line.html:40
 msgid "Save and add another"
-msgstr "保存并添加下一个"
+msgstr "保存并新增一条"
 
 #: .\templates\admin\submit_line.html:46
 msgid "Save as new"
 msgstr "另存为"
 
-#: .\templates\admin\submit_line.html:55
-msgid "Delete"
-msgstr "删除"
+#: .\templates\registration\logged_out.html:11
+msgid "You have been successfully logged out from the administration"
+msgstr "你已经成功退出本系统"
+
+#: .\templates\registration\logged_out.html:16
+msgid "Thanks for spending some quality time with the web site today."
+msgstr "感谢您今天与本网站共享一段美好时光。"
+
+#: .\templates\registration\logged_out.html:20
+msgid "Log in again"
+msgstr "重新登录"
+
+#: .\templates\registration\password_change_done.html:26
+msgid "Your password was changed."
+msgstr "密码已修改"
+
+#: .\templates\registration\password_change_form.html:35
+msgid ""
+"Please enter your old password, for security’s sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr "为了安全，请输入你的旧密码，并输入两次你设置的新密码。"
+
+#: .\templates\unfold\change_list_filter.html:9
+msgid "Filter"
+msgstr "筛选"
+
+#: .\templates\unfold\change_list_filter.html:16
+msgid "Hide counts"
+msgstr "隐藏计数"
+
+#: .\templates\unfold\change_list_filter.html:20
+msgid "Show counts"
+msgstr "显示计数"
+
+#: .\templates\unfold\change_list_filter.html:29
+msgid "Clear all filters"
+msgstr "清除所有筛选"
+
+#: .\templates\unfold\change_list_filter.html:57
+msgid "Apply Filters"
+msgstr "应用筛选"
+
+#: .\templates\unfold\helpers\account_links.html:17
+msgid "View site"
+msgstr "查看网站"
+
+#: .\templates\unfold\helpers\account_links.html:32
+msgid "Log out"
+msgstr "注销"
+
+#: .\templates\unfold\helpers\actions_row.html:4
+msgid "More actions"
+msgstr "更多动作"
+
+#: .\templates\unfold\helpers\app_list.html:68
+msgid "All applications"
+msgstr "所有应用"
+
+#: .\templates\unfold\helpers\app_list_default.html:31
+msgid "Add"
+msgstr "新增"
+
+#: .\templates\unfold\helpers\boolean.html:8
+msgid "Unknown"
+msgstr "未知"
+
+#: .\templates\unfold\helpers\boolean.html:10
+msgid "True"
+msgstr "是"
+
+#: .\templates\unfold\helpers\boolean.html:12
+msgid "False"
+msgstr "否"
+
+#: .\templates\unfold\helpers\delete_submit_line.html:5
+msgid "No, take me back"
+msgstr "不，我返回"
+
+#: .\templates\unfold\helpers\delete_submit_line.html:9
+msgid "Yes, I’m sure"
+msgstr "是的，我确定"
+
+#: .\templates\unfold\helpers\display_header.html:10
+msgid "Record picture"
+msgstr "记录图片"
+
+#: .\templates\unfold\helpers\history.html:9
+msgid "Recent actions"
+msgstr "最近动作"
+
+#: .\templates\unfold\helpers\history.html:28
+msgid "Unknown content"
+msgstr "未知内容"
+
+#: .\templates\unfold\helpers\messages\errornote.html:6
+msgid "Please correct the error below."
+msgstr "请修正以下错误。"
+
+#: .\templates\unfold\helpers\messages\errornote.html:8
+msgid "Please correct the errors below."
+msgstr "请修正以下错误。"
+
+#: .\templates\unfold\helpers\search.html:18
+msgid "Search apps and models..."
+msgstr "搜索应用和模型……"
+
+#: .\templates\unfold\helpers\search.html:18
+msgid "Filter navigation items"
+msgstr "筛选导航项目"
+
+#: .\templates\unfold\helpers\tab_list.html:24
+msgid "General"
+msgstr "概况"
+
+#: .\templates\unfold\helpers\theme_switch.html:15
+msgid "Dark"
+msgstr "深色模式"
+
+#: .\templates\unfold\helpers\theme_switch.html:22
+msgid "Light"
+msgstr "浅色模式"
+
+#: .\templates\unfold\helpers\theme_switch.html:29
+msgid "System"
+msgstr "跟随系统"
+
+#: .\templates\unfold\helpers\welcomemsg.html:14
+#, python-format
+msgid "%(counter)s result"
+msgid_plural "%(counter)s results"
+msgstr[0] "%(counter)s条结果"
+msgstr[1] "%(counter)s条结果"
+
+#: .\templates\unfold\helpers\welcomemsg.html:14
+#, python-format
+msgid "%(full_result_count)s total"
+msgstr "总计%(full_result_count)s条"
+
+#: .\templates\unfold\helpers\welcomemsg.html:22
+msgid "Welcome,"
+msgstr "欢迎，"
+
+#: .\templates\unfold\widgets\clearable_file_input.html:6
+msgid "Image preview"
+msgstr "图片预览"
+
+#: .\templates\unfold\widgets\clearable_file_input.html:24
+#: .\templates\unfold\widgets\clearable_file_input_small.html:17
+msgid "Choose file to upload"
+msgstr "选择上传文件"
+
+#: .\templates\unfold\widgets\related_widget_wrapper.html:16
+#, python-format
+msgid "Change selected %(model)s"
+msgstr "修改已选模型%(model)s"
+
+#: .\templates\unfold\widgets\related_widget_wrapper.html:26
+#, python-format
+msgid "Add another %(model)s"
+msgstr "新增另一个模型%(model)s"
+
+#: .\templates\unfold\widgets\related_widget_wrapper.html:35
+#, python-format
+msgid "View selected %(model)s"
+msgstr "查看已选模型%(model)s"
+
+#: .\templates\unfold\widgets\related_widget_wrapper.html:45
+#, python-format
+msgid "Delete selected %(model)s"
+msgstr "删除已选模型%(model)s"
+
+#: .\templatetags\unfold_list.py:109
+msgid "Select all objects on this page for an action"
+msgstr "选择本页面所有对象"
+
+#: .\widgets.py:455
+msgid "Date"
+msgstr "日期"
+
+#: .\widgets.py:549
+msgid "Select currency"
+msgstr "选择货币"

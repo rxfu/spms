@@ -105,6 +105,10 @@ USE_TZ = False
 
 LANGUAGES = [('zh-hans', '中文简体')]
 
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
@@ -298,140 +302,6 @@ G_SCHOOL = 1
 G_COLLEGE = 2
 G_PANELIST = 3
 G_APPLICANT = 4
-#
-# # Jazzmin Settings
-# JAZZMIN_SETTINGS = {
-#     'site_title': '广西师范大学学科数据分析中心',
-#     'site_header': '学科数据分析中心',
-#     'site_brand': '学科数据分析中心',
-#     'welcome_sign': '欢迎来到广西师范大学学科数据分析中心',
-#     'copyright': '广西师范大学学科数据分析中心'
-# }
-#
-# # SimpleUI Settings
-# SIMPLEUI_HOME_INFO = False
-# SIMPLEUI_ANALYSIS = False
-# SIMPLEUI_CONFIG = {
-#     'system_keep': False,
-#     'menu_display': ['项目管理', '项目评审管理', '用户管理', '认证和授权', '系统管理'],
-#     'dynamic': True,
-#     'menus': [
-#         {
-#             'app': 'projects',
-#             'name': '项目管理',
-#             'icon': 'fas fa-globe',
-#             'models': [
-#                 {
-#                     'name': '项目信息列表',
-#                     'icon': 'fas fa-tasks',
-#                     'url': 'projects/information/'
-#                 }
-#             ]
-#         },
-#         {
-#             'app': 'reviews',
-#             'name': '项目评审管理',
-#             'icon': 'fas fa-table',
-#             'models': [
-#                 {
-#                     'name': '项目评审列表',
-#                     'icon': 'fas fa-industry',
-#                     'url': 'reviews/review/'
-#                 }
-#             ]
-#         },
-#         {
-#             'app': 'accounts',
-#             'name': '用户管理',
-#             'icon': 'fas fa-users-cog',
-#             'models': [
-#                 {
-#                     'name': '用户资料',
-#                     'icon': 'fas fa-user',
-#                     'url': 'accounts/profile/',
-#                     'permission': 'accounts.view_profile'
-#                 },
-#                 {
-#                     'name': '用户',
-#                     'icon': 'fas fa-user',
-#                     'url': 'auth/user/'
-#                 }, {
-#                     'name': '组',
-#                     'icon': 'fas fa-users',
-#                     'url': 'auth/group/'
-#
-#                 },
-#                 {
-#                     'name': '角色',
-#                     'icon': 'fas fa-user-tag',
-#                     'url': 'accounts/role/'
-#                 }
-#             ]
-#         },
-#         {
-#             'app': 'settings',
-#             'name': '系统管理',
-#             'icon': 'fas fa-cogs',
-#             'models': [
-#                 {
-#                     'name': '性别设置',
-#                     'icon': 'fas fa-male',
-#                     'url': 'settings/gender/'
-#                 },
-#                 {
-#                     'name': '身份证件类型设置',
-#                     'icon': 'fas fa-id-card',
-#                     'url': 'settings/idtype/'
-#                 },
-#                 {
-#                     'name': '学历设置',
-#                     'icon': 'fas fa-school',
-#                     'url': 'settings/education/'
-#                 },
-#                 {
-#                     'name': '学位设置',
-#                     'icon': 'fas fa-graduation-cap',
-#                     'url': 'settings/degree/'
-#                 },
-#                 {
-#                     'name': '职称设置',
-#                     'icon': 'fas fa-book-open',
-#                     'url': 'settings/title/'
-#                 },
-#                 {
-#                     'name': '学科设置',
-#                     'icon': 'fas fa-atom',
-#                     'url': 'settings/subject/'
-#                 },
-#                 {
-#                     'name': '研究类型设置',
-#                     'icon': 'fas fa-chalkboard',
-#                     'url': 'settings/type/'
-#                 },
-#                 {
-#                     'name': '单位设置',
-#                     'icon': 'fas fa-university',
-#                     'url': 'settings/department/'
-#                 },
-#                 {
-#                     'name': '项目系列设置',
-#                     'icon': 'fas fa-signal',
-#                     'url': 'settings/series/'
-#                 },
-#                 {
-#                     'name': '项目阶段设置',
-#                     'icon': 'fas fa-steam',
-#                     'url': 'settings/phase'
-#
-#                 }, {
-#                     'name': '系统设置',
-#                     'icon': 'fas fa-cog',
-#                     'url': 'settings/setting/'
-#                 },
-#             ]
-#         }
-#     ]
-# }
 
 try:
     from .local_settings import *
