@@ -119,7 +119,9 @@ class ReviewAdmin(ModelAdmin):
             setting = Setting.objects.get(is_opened=True)
 
             if request.user.is_authenticated:
-                if request.user.groups.filter(id=G_PANELIST).exists():
+                if request.user.is_superuser:
+                    qs = Information.objects.all()
+                elif request.user.groups.filter(id=G_PANELIST).exists():
                     qs = Information.objects.filter(year=setting.year, team=request.user.profile.team)
 
                     # if request.resolver_match.func.__name__ == 'change_view':
@@ -134,7 +136,7 @@ class ReviewAdmin(ModelAdmin):
             setting = Setting.objects.get(is_opened=True)
 
             if request.user.is_authenticated:
-                if request.user.groups.filter(id=G_PANELIST).exists():
+                if request.user.groups.filter(id=G_PANELIST, year=setting.year).exists():
                     obj = Review.objects.get(id=object_id)
 
         return obj

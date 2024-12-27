@@ -14,7 +14,7 @@ from settings.models import Setting
 from spms import settings
 from .forms import InformationForm, MemberInlineForm
 from .models import Member, Information
-from .views import InformationRedirectView
+from .views import InformationRedirectView, ApplicationGenerateView
 
 
 # Register your models here.
@@ -53,7 +53,7 @@ class InformationAdmin(ModelAdmin):
             format_html(
                 '<a href="{0}" alt="{1}" title="{1}" target="_blank" class="text-primary-600">{1}</a>',
                 obj.application_attachment.url,
-                "点击查看",
+                "查看",
             )
             if obj.application_attachment
             else format_html(
@@ -76,6 +76,13 @@ class InformationAdmin(ModelAdmin):
             '<div class="flex items-center"><div class="block mr-3 outline rounded-full ml-1 h-1 w-1 bg-{0}-500 outline-{0}-200 outline-{0}-500/20"></div><span>{1}</span></div>',
             status[0], status[1])
 
+    @display(description='生成')
+    def generate_button(self, obj):
+        if Setting.objects.filter(year=obj.year, series=obj.series, is_opened=True).exists():
+            return format_html(
+                '<a href={} title="生成申请书" class="bg-green-500 border border-transparent flex flex-row font-light group items-center justify-center py-1 rounded-md text-xs text-white w-full">生成申请书</a>',
+                reverse_lazy('admin:project_pdf', kwargs={'pk': obj.id}))
+
     @display(description='编辑')
     def edit_button(self, obj):
         if Setting.objects.filter(year=obj.year, series=obj.series, is_opened=True).exists():
@@ -91,7 +98,10 @@ class InformationAdmin(ModelAdmin):
                 reverse_lazy('admin:projects_information_delete', args=(obj.id,)))
 
     def get_urls(self) -> List[URLPattern]:
-        return super().get_urls() + [path('list', InformationRedirectView.as_view(), name='project_list')]
+        return super().get_urls() + [
+            path('list', InformationRedirectView.as_view(), name='project_list'),
+            path('<int:pk>/pdf', ApplicationGenerateView.as_view(), name='project_pdf'),
+        ]
 
     def add_view(self, request, form_url="", extra_context=None):
         extra_context = extra_context or {}
@@ -140,7 +150,7 @@ class InformationAdmin(ModelAdmin):
             if request.user.is_superuser:
                 fields.extend(['team'])
             elif request.user.groups.filter(id=settings.G_APPLICANT).exists():
-                fields.extend(['opinion', 'get_department_status', 'edit_button', 'delete_button'])
+                fields.extend(['opinion', 'get_department_status', 'generate_button', 'edit_button', 'delete_button'])
             elif request.user.groups.filter(id=settings.G_COLLEGE).exists():
                 fields.extend(['opinion', 'department_is_agreed'])
 

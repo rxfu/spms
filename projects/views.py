@@ -1,5 +1,6 @@
 from django.urls import reverse_lazy
 from django.views.generic import RedirectView
+from wkhtmltopdf.views import PDFTemplateView
 
 from projects.models import Information
 from settings.models import Setting
@@ -25,3 +26,19 @@ class InformationRedirectView(RedirectView):
                 redirect = reverse_lazy('admin:projects_information_changelist')
 
             return redirect
+
+
+class ApplicationGenerateView(PDFTemplateView):
+    filename = 'application.pdf'
+    template_name = 'admin/projects/information/pdf.html'
+    cmd_options = {
+        'enable-local-file-access': True,
+    }
+
+    def get_context_data(self, **kwargs):
+        pk = kwargs.get('pk')
+        context = super().get_context_data(**kwargs)
+        context['project'] = Information.objects.get(pk=pk)
+        context['setting'] = Setting.objects.get(is_opened=True, phase_id=1)
+
+        return context

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="符荣鑫,FU Rongxin">
+
+    <title>项目申请书</title>
+
+    <style>
+        body {
+            font-family: SimSun;
+            font-size: 16pt;
+            color: #000 !important;
+        }
+
+        h1 {
+            font-family: SimHei;
+            font-size: 24pt;
+            font-weight: bold;
+            padding-top: 24pt;
+        }
+
+        table {
+            table-layout: fixed;
+        }
+
+        table th {
+            font-family: SimHei;
+        }
+
+        table th, table td {
+            border: 1px solid #000 !important;
+            word-wrap: break-word;
+            word-break: break-all;
+            text-align: center;
+            padding: 10px;
+        }
+
+        table, tr, td, th, tbody, thead, tfoot {
+            page-break-inside: avoid !important;
+        }
+
+        @page {
+            margin: 50px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .inscribe {
+            margin-top: 160px !important;
+        }
+
+        .inscribe p {
+            position: relative;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <header class="text-center">
+        <h1>{{ setting.year }}年度{{ project.series.name }}申请书</h1>
+    </header>
+    <table cellspacing="0" cellpadding="0">
+        <tr>
+            <th>项目名称</th>
+            <td colspan="7">{{ project.name }}</td>
+        </tr>
+        <tr>
+            <th>学科分类</th>
+            <td colspan="3">{{ project.subject.name }}</td>
+            <th>研究类别</th>
+            <td colspan="3">{{ project.type.name }}</td>
+        </tr>
+        <tr>
+            <th>起止年月</th>
+            <td colspan="7">{{ project.beg_year }}年至{{ project.end_year }}年</td>
+        </tr>
+        <tr>
+            <th>姓名</th>
+            <td>{{ project.applicant.profile.name }}</td>
+            <th>性别</th>
+            <td>{{ project.applicant.profile.gender.name }}</td>
+            <th>出生日期</th>
+            <td>{{ project.applicant.profile.birthday }}</td>
+            <th>身份证号</th>
+            <td>{{ project.applicant.profile.idnumber }}</td>
+        </tr>
+        <tr>
+            <th>最高学历</th>
+            <td colspan="2">{{ project.applicant.profile.education.name }}</td>
+            <th>最高学位</th>
+            <td colspan="2">{{ project.applicant.profile.degree.name }}</td>
+            <th>职称</th>
+            <td>{{ project.applicant.profile.title.name }}</td>
+        </tr>
+        <tr>
+            <th>工作单位</th>
+            <td colspan="3">{{ project.applicant.profile.department.name }}</td>
+            <th>联系电话</th>
+            <td colspan="3">{{ project.applicant.profile.phone }}</td>
+        </tr>
+        <tr>
+            <th>研究方向</th>
+            <td colspan="3">{{ project.direction }}</td>
+            <th>邮箱</th>
+            <td colspan="3">{{ project.applicant.email }}</td>
+        </tr>
+        <tr>
+            <th rowspan="{{ project.member_set.count|add:1 }}">项目组成员</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>所属学科</th>
+            <th>学历</th>
+            <th>学位</th>
+            <th>职称</th>
+            <th>工作单位</th>
+        </tr>
+        {% for member in project.member_set.all %}
+            <tr>
+                <td>{{ member.name }}</td>
+                <td>{{ member.gender.name }}</td>
+                <td>{{ member.subject.name }}</td>
+                <td>{{ member.education.name }}</td>
+                <td>{{ member.degree.name }}</td>
+                <td>{{ member.title.name }}</td>
+                <td>{{ member.department.name }}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <th>研究的目的和意义</th>
+            <td colspan="7" class="text-left">{{ project.purpose|safe|linebreaks }}</td>
+        </tr>
+        <tr>
+            <th>研究内容</th>
+            <td colspan="7" class="text-left">{{ project.content|safe|linebreaks }}</td>
+        </tr>
+        <tr>
+            <th>研究进度</th>
+            <td colspan="7" class="text-left">{{ project.progress|safe|linebreaks }}</td>
+        </tr>
+        <tr>
+            <th>预期成果</th>
+            <td colspan="7" class="text-left">{{ project.result|safe|linebreaks }}</td>
+        </tr>
+        <tr>
+            <th>经费预算</th>
+            <td colspan="7" class="text-left">{{ project.budget|safe|linebreaks }}</td>
+        </tr>
+        <tr>
+            <th>学院审核意见</th>
+            <td colspan="7" class="text-left">
+                <p></p>
+                <p></p>
+                <p></p>
+                <div class="text-center inscribe">
+                    <p>盖&nbsp;章&nbsp;</p>
+                    <p>{% now 'Y年' %}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</main>
+</body>
+</html>

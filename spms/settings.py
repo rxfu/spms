@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'unfold.contrib.simple_history',
     'ckeditor',
     'ckeditor_uploader',
+    'wkhtmltopdf',
     'settings.apps.SettingsConfig',
     'accounts.apps.AccountsConfig',
     'projects.apps.ProjectsConfig',
