@@ -1,6 +1,7 @@
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
-from unfold.widgets import UnfoldAdminTextInputWidget, UnfoldAdminSelectWidget, UnfoldAdminFileFieldWidget
+from unfold.widgets import UnfoldAdminTextInputWidget, UnfoldAdminSelectWidget, UnfoldAdminFileFieldWidget, \
+    UnfoldAdminSingleDateWidget
 
 from projects.models import Information, Member
 from settings.models import Type, Subject, Gender, Education, Degree, Title, Department
@@ -26,8 +27,8 @@ class MemberInlineForm(forms.ModelForm):
 
 class InformationForm(forms.ModelForm):
     name = forms.CharField(label='项目名称', widget=UnfoldAdminTextInputWidget)
-    beg_year = forms.CharField(label='项目起始年份', widget=UnfoldAdminTextInputWidget)
-    end_year = forms.CharField(label='项目结束年份', widget=UnfoldAdminTextInputWidget)
+    beg_year = forms.DateField(label='项目起始年月', widget=UnfoldAdminSingleDateWidget())
+    end_year = forms.DateField(label='项目结束年月', widget=UnfoldAdminSingleDateWidget())
     type = forms.ModelChoiceField(label='项目研究类型', queryset=Type.objects.all(), widget=UnfoldAdminSelectWidget)
     subject = forms.ModelChoiceField(label='所属学科', queryset=Subject.objects.all(), widget=UnfoldAdminSelectWidget)
     direction = forms.CharField(label='研究方向', widget=UnfoldAdminTextInputWidget, required=False)

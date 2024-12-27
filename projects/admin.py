@@ -45,7 +45,7 @@ class InformationAdmin(ModelAdmin):
 
     @display(description='起始年限')
     def get_year(self, obj):
-        return obj.beg_year + '~' + obj.end_year
+        return obj.beg_year.strftime('%Y年%m月') + ' 至 ' + obj.end_year.strftime('%Y年%m月')
 
     @display(description='项目申请书')
     def get_application(self, obj):
