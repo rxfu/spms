@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django import forms
 from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError, PermissionDenied
 from unfold.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from unfold.widgets import UnfoldAdminTextInputWidget, UnfoldAdminEmailInputWidget, UnfoldAdminPasswordInput, \
     UnfoldAdminSelectWidget
@@ -26,7 +26,7 @@ class UserAuthenticationForm(AuthenticationForm):
                 if user.groups.filter(id=settings.G_APPLICANT).exists():
                     if ((setting.submit_beg_time is not None) or (setting.submit_end_time is not None)) and not (
                             setting.submit_beg_time <= now <= setting.submit_end_time):
-                        raise ValidationError(self.request, "未到系统开放时间，请稍后再试！")
+                        raise PermissionDenied("未到系统开放时间，请稍后再试！")
                 elif user.groups.filter(id=settings.G_COLLEGE).exists():
                     if ((setting.submit_beg_time is not None) or (setting.submit_end_time is not None)) and not (
                             setting.submit_beg_time <= now <= setting.submit_end_time):

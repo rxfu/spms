@@ -1,5 +1,6 @@
 from django.urls import reverse_lazy
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, DetailView
+from unfold.views import UnfoldModelAdminViewMixin
 from wkhtmltopdf.views import PDFTemplateView
 
 from projects.models import Information
@@ -39,6 +40,27 @@ class ApplicationGenerateView(PDFTemplateView):
         pk = kwargs.get('pk')
         context = super().get_context_data(**kwargs)
         context['project'] = Information.objects.get(pk=pk)
+        context['setting'] = Setting.objects.get(is_opened=True, phase_id=1)
+
+        return context
+
+
+class ApplicationPreviewView(UnfoldModelAdminViewMixin, DetailView):
+    title = '预览'
+    permission_required = ()
+    template_name = 'admin/projects/information/preview.html'
+    model = Information
+    context_object_name = 'project'
+
+    # cmd_options = {
+    #     'enable-local-file-access': True,
+    #     'quiet': False,
+    # }
+
+    def get_context_data(self, **kwargs):
+        # pk = kwargs.get('pk')
+        context = super().get_context_data(**kwargs)
+        # context['project'] = Information.objects.get(pk=pk)
         context['setting'] = Setting.objects.get(is_opened=True, phase_id=1)
 
         return context

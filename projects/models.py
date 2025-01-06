@@ -35,6 +35,7 @@ class Information(models.Model):
     progress = models.TextField('研究进度', null=True, blank=True)
     result = models.TextField('预期成果', null=True, blank=True)
     budget = RichTextUploadingField(' 经费预算', null=True, blank=True)
+    is_confirmed = models.BooleanField('是否已经确认', default=False)
     opinion = models.TextField(' 学院审核意见', null=True, blank=True)
     department_is_agreed = models.BooleanField('学院是否同意申报', null=True, blank=True)
     application_attachment = models.FileField('项目申报附件', null=True, blank=True, upload_to=get_upload_path,

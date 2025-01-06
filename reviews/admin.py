@@ -136,7 +136,7 @@ class ReviewAdmin(ModelAdmin):
             setting = Setting.objects.get(is_opened=True)
 
             if request.user.is_authenticated:
-                if request.user.groups.filter(id=G_PANELIST, year=setting.year).exists():
-                    obj = Review.objects.get(id=object_id)
+                if request.user.groups.filter(id=G_PANELIST).exists():
+                    obj = Review.objects.get(id=object_id, year=setting.year)
 
         return obj

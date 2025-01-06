@@ -24,6 +24,7 @@
 
         table {
             table-layout: fixed;
+            border-collapse: collapse;
         }
 
         table th {
@@ -43,7 +44,8 @@
         }
 
         @page {
-            margin: 50px 0;
+            size: A4;
+        {#margin: 25.4cm;#}
         }
 
         .text-center {
@@ -64,7 +66,7 @@
 
         .inscribe p {
             position: relative;
-            left: 200px;
+            left: 300px;
         }
     </style>
 </head>
@@ -73,7 +75,7 @@
     <header class="text-center">
         <h1>{{ setting.year }}年度{{ project.series.name }}申请书</h1>
     </header>
-    <table cellspacing="0" cellpadding="0">
+    <table style="width:100%">
         <tr>
             <th>项目名称</th>
             <td colspan="7">{{ project.name }}</td>
@@ -140,28 +142,40 @@
             </tr>
         {% endfor %}
         <tr>
-            <th>研究的目的和意义</th>
-            <td colspan="7" class="text-left">{{ project.purpose|safe|linebreaks }}</td>
+            <th colspan="8" class="text-left">研究的目的和意义</th>
         </tr>
         <tr>
-            <th>研究内容</th>
-            <td colspan="7" class="text-left">{{ project.content|safe|linebreaks }}</td>
+            <td colspan="8" class="text-left">{{ project.purpose|safe|linebreaks }}</td>
         </tr>
         <tr>
-            <th>研究进度</th>
-            <td colspan="7" class="text-left">{{ project.progress|safe|linebreaks }}</td>
+            <th colspan="8" class="text-left">研究内容</th>
         </tr>
         <tr>
-            <th>预期成果</th>
-            <td colspan="7" class="text-left">{{ project.result|safe|linebreaks }}</td>
+            <td colspan="8" class="text-left">{{ project.content|safe|linebreaks }}</td>
         </tr>
         <tr>
-            <th>经费预算</th>
-            <td colspan="7" class="text-left">{{ project.budget|safe|linebreaks }}</td>
+            <th colspan="8" class="text-left">研究进度</th>
         </tr>
         <tr>
-            <th>学院审核意见</th>
-            <td colspan="7" class="text-left">
+            <td colspan="8" class="text-left">{{ project.progress|safe|linebreaks }}</td>
+        </tr>
+        <tr>
+            <th colspan="8" class="text-left">预期成果</th>
+        </tr>
+        <tr>
+            <td colspan="8" class="text-left">{{ project.result|safe|linebreaks }}</td>
+        </tr>
+        <tr>
+            <th colspan="8" class="text-left">经费预算</th>
+        </tr>
+        <tr>
+            <td colspan="8" class="text-left">{{ project.budget|safe|linebreaks }}</td>
+        </tr>
+        <tr>
+            <th colspan="8" class="text-center">学院审核意见</th>
+        </tr>
+        <tr>
+            <td colspan="8" class="text-left">
                 <p></p>
                 <p></p>
                 <p></p>

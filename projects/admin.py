@@ -2,7 +2,9 @@ from typing import List
 
 from django.contrib import admin
 from django.contrib import messages
+from django.db.models import Model
 from django.forms import inlineformset_factory
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect
 from django.urls import reverse_lazy, URLPattern, path
 from django.utils.html import format_html
@@ -14,7 +16,7 @@ from settings.models import Setting
 from spms import settings
 from .forms import InformationForm, MemberInlineForm
 from .models import Member, Information
-from .views import InformationRedirectView, ApplicationGenerateView
+from .views import InformationRedirectView, ApplicationGenerateView, ApplicationPreviewView
 
 
 # Register your models here.
@@ -31,9 +33,11 @@ class MemberInline(TabularInline):
 class InformationAdmin(ModelAdmin):
     inlines = [MemberInline]
     form = InformationForm
-    actions = ['delete_selected', 'unset_team']
     list_display = ('id', 'opinion', 'department_is_agreed')
     list_editable = ('opinion', 'department_is_agreed')
+    actions = ['delete_selected', 'unset_team']
+
+    # actions_submit_line = ['confirm_project']
 
     @display(description='主持人')
     def get_applicant(self, obj):
@@ -62,6 +66,17 @@ class InformationAdmin(ModelAdmin):
             )
         )
 
+    @display(description='是否提交')
+    def get_confirmed(self, obj):
+        if obj.is_confirmed:
+            status = ['green', '已提交']
+        else:
+            status = ['red', '未提交']
+
+        return format_html(
+            '<div class="flex items-center"><div class="block mr-3 outline rounded-full ml-1 h-1 w-1 bg-{0}-500 outline-{0}-200 outline-{0}-500/20"></div><span>{1}</span></div>',
+            status[0], status[1])
+
     @display(description='学院是否同意申报')
     def get_department_status(self, obj):
         if obj.department_is_agreed is not None:
@@ -80,27 +95,28 @@ class InformationAdmin(ModelAdmin):
     def generate_button(self, obj):
         if Setting.objects.filter(year=obj.year, series=obj.series, is_opened=True).exists():
             return format_html(
-                '<a href={} title="生成申请书" class="bg-green-500 border border-transparent flex flex-row font-light group items-center justify-center py-1 rounded-md text-xs text-white w-full">生成申请书</a>',
+                '<a href="{}" title="生成申请书" class="bg-green-500 border border-transparent flex flex-row font-light group items-center justify-center py-1 rounded-md text-xs text-white w-full">生成申请书</a>',
                 reverse_lazy('admin:project_pdf', kwargs={'pk': obj.id}))
 
     @display(description='编辑')
     def edit_button(self, obj):
         if Setting.objects.filter(year=obj.year, series=obj.series, is_opened=True).exists():
             return format_html(
-                '<a href={} title="编辑" class="bg-primary-600 border border-transparent flex flex-row font-light group items-center justify-center py-1 rounded-md text-xs text-white w-full">编辑</a>',
+                '<a href="{}" title="编辑" class="bg-primary-600 border border-transparent flex flex-row font-light group items-center justify-center py-1 rounded-md text-xs text-white w-full">编辑</a>',
                 reverse_lazy('admin:projects_information_change', args=(obj.id,)))
 
     @display(description='删除')
     def delete_button(self, obj):
         if Setting.objects.filter(year=obj.year, series=obj.series, is_opened=True).exists():
             return format_html(
-                '<a href={} title="删除" class="bg-red-600 border border-transparent flex flex-row font-light group items-center justify-center py-1 rounded-md text-xs text-white w-full">删除</a>',
+                '<a href="{}" title="删除" class="bg-red-600 border border-transparent flex flex-row font-light group items-center justify-center py-1 rounded-md text-xs text-white w-full">删除</a>',
                 reverse_lazy('admin:projects_information_delete', args=(obj.id,)))
 
     def get_urls(self) -> List[URLPattern]:
         return super().get_urls() + [
             path('list', InformationRedirectView.as_view(), name='project_list'),
             path('<int:pk>/pdf', ApplicationGenerateView.as_view(), name='project_pdf'),
+            path('<int:pk>/preview', ApplicationPreviewView.as_view(model_admin=self), name='project_preview'),
         ]
 
     def add_view(self, request, form_url="", extra_context=None):
@@ -144,15 +160,16 @@ class InformationAdmin(ModelAdmin):
         formset.save_m2m()
 
     def get_list_display(self, request):
-        fields = ['year', 'name', 'get_year', 'direction', 'get_applicant', 'get_members', 'get_application']
+        fields = ['year', 'name', 'get_year', 'direction', 'get_applicant', 'get_members', 'get_application',
+                  'get_confirmed', 'opinion']
 
         if request.user.is_authenticated:
             if request.user.is_superuser:
-                fields.extend(['team'])
+                fields.extend(['get_department_status', 'team'])
             elif request.user.groups.filter(id=settings.G_APPLICANT).exists():
-                fields.extend(['opinion', 'get_department_status', 'generate_button', 'edit_button', 'delete_button'])
+                fields.extend(['get_department_status', 'generate_button', 'edit_button', 'delete_button'])
             elif request.user.groups.filter(id=settings.G_COLLEGE).exists():
-                fields.extend(['opinion', 'department_is_agreed'])
+                fields.extend(['department_is_agreed'])
 
         return fields
 
@@ -161,7 +178,7 @@ class InformationAdmin(ModelAdmin):
 
     def get_changelist_instance(self, request):
         if request.user.is_authenticated:
-            if request.user.groups.filter(id=settings.G_APPLICANT).exists():
+            if request.user.groups.filter(id=settings.G_APPLICANT).exists() or request.user.is_superuser:
                 self.list_editable = ()
 
         return super().get_changelist_instance(request)
@@ -246,3 +263,24 @@ class InformationAdmin(ModelAdmin):
                 qs = None
 
         return qs
+
+    def response_change(self, request: HttpRequest, obj: Model) -> HttpResponse:
+        if '_confirm' in request.POST:
+            obj.is_confirmed = True
+            obj.save()
+
+            return HttpResponseRedirect(reverse_lazy('admin:project_preview', kwargs={'pk': obj.id}))
+
+        return super().response_change(request, obj)
+
+    # @action(description='确认并提交', permissions=['change_project'])
+    # def confirm_project(self, request, obj):
+    #     obj.is_confirmed = True
+    #     obj.save()
+    #
+    # def has_change_project_permission(self, request, obj=None):
+    #     return request.user.groups.filter(id=settings.G_APPLICANT).exists()
+    #
+    # def has_change_permission(self, request, obj=None):
+    #     pass
+    # return request.user.groups.filter(id=settings.G_APPLICANT).exists() and (not obj.is_confirmed)

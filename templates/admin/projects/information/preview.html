@@ -1,0 +1,240 @@
+{% extends "admin/base_site.html" %}
+
+{% load i18n admin_urls static admin_modify %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <style>
+        main {
+            font-family: SimSun;
+            font-size: 16pt;
+            color: #000 !important;
+        }
+
+        main h1 {
+            font-family: SimHei;
+            font-size: 24pt;
+            font-weight: bold;
+            line-height: 44pt;
+        }
+
+        {#main table {#}
+        {#    table-layout: fixed;#}
+        {
+        #}#}
+
+        main table th {
+            font-family: SimHei;
+        }
+
+        main table th, main table td {
+            border: 1px solid #000 !important;
+            word-wrap: break-word;
+            word-break: break-all;
+            text-align: center;
+            padding: 10px;
+        }
+
+        {#table, tr, td, th, tbody, thead, tfoot {#}
+        {#    page-break-inside: avoid !important;#}
+        {
+        #}#}
+
+        {#main @page {#}
+        {#    margin: 50px 0;#}
+        {
+        #}#}
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .inscribe {
+            margin-top: 160px !important;
+        }
+
+        .inscribe p {
+            position: relative;
+            left: 200px;
+            padding-top: 20px;
+        }
+    </style>
+    <script src="{% url 'admin:jsi18n' %}"></script>
+    {{ media }}
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} change-form{% endblock %}
+
+{% if not is_popup %}
+    {% block breadcrumbs %}
+        <div class="px-4 lg:px-12">
+            <div class="container mb-6 mx-auto -my-3 lg:mb-12">
+                <ul class="flex flex-wrap">
+                    {% url 'admin:index' as link %}
+                    {% trans 'Home' as name %}
+                    {% include 'unfold/helpers/breadcrumb_item.html' with link=link name=name %}
+
+                    {% url 'admin:app_list' app_label=opts.app_label as link %}
+                    {% include 'unfold/helpers/breadcrumb_item.html' with link=link name=opts.app_config.verbose_name %}
+
+                    {% if has_view_permission %}
+                        {% url opts|admin_urlname:'changelist' as link %}
+                        {% include 'unfold/helpers/breadcrumb_item.html' with link=link  name=opts.verbose_name_plural|capfirst %}
+                    {% else %}
+                        {% include 'unfold/helpers/breadcrumb_item.html' with link='' name=opts.verbose_name_plural|capfirst %}
+                    {% endif %}
+
+                    {% if add %}
+                        {% blocktranslate trimmed with name=opts.verbose_name asvar breadcrumb_name %}
+                            Add {{ name }}
+                        {% endblocktranslate %}
+
+                        {% include 'unfold/helpers/breadcrumb_item.html' with link='' name=breadcrumb_name %}
+                    {% else %}
+                        {% include 'unfold/helpers/breadcrumb_item.html' with link='' name=original|truncatewords:'18' %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    {% endblock %}
+{% endif %}
+
+{% block nav-global %}{% spaceless %}
+    {% if change and not is_popup %}
+        {% block object-tools-items %}
+            {% change_form_object_tools %}
+        {% endblock %}
+    {% endif %}
+{% endspaceless %}{% endblock %}
+
+{% block nav-global-side %}
+    {#    {% if has_add_permission %}#}
+    {#        {% include "unfold/helpers/add_link.html" %}#}
+    {#    {% endif %}#}
+{% endblock %}
+
+{% block content %}
+    <div id="content-main">
+        {% block form_before %}{% endblock %}
+        <main class="w-4/5">
+            <header class="text-center">
+                <h1>{{ setting.year }}年度{{ project.series.name }}申请书</h1>
+            </header>
+            <table class="table table-bordered w-full">
+                <tr>
+                    <th>项目名称</th>
+                    <td colspan="7">{{ project.name }}</td>
+                </tr>
+                <tr>
+                    <th>学科分类</th>
+                    <td colspan="3">{{ project.subject.name }}</td>
+                    <th>研究类别</th>
+                    <td colspan="3">{{ project.type.name }}</td>
+                </tr>
+                <tr>
+                    <th>起止年月</th>
+                    <td colspan="7">{{ project.beg_year }}年至{{ project.end_year }}年</td>
+                </tr>
+                <tr>
+                    <th>姓名</th>
+                    <td>{{ project.applicant.profile.name }}</td>
+                    <th>性别</th>
+                    <td>{{ project.applicant.profile.gender.name }}</td>
+                    <th>出生日期</th>
+                    <td>{{ project.applicant.profile.birthday }}</td>
+                    <th>身份证号</th>
+                    <td>{{ project.applicant.profile.idnumber }}</td>
+                </tr>
+                <tr>
+                    <th>最高学历</th>
+                    <td colspan="2">{{ project.applicant.profile.education.name }}</td>
+                    <th>最高学位</th>
+                    <td colspan="2">{{ project.applicant.profile.degree.name }}</td>
+                    <th>职称</th>
+                    <td>{{ project.applicant.profile.title.name }}</td>
+                </tr>
+                <tr>
+                    <th>工作单位</th>
+                    <td colspan="3">{{ project.applicant.profile.department.name }}</td>
+                    <th>联系电话</th>
+                    <td colspan="3">{{ project.applicant.profile.phone }}</td>
+                </tr>
+                <tr>
+                    <th>研究方向</th>
+                    <td colspan="3">{{ project.direction }}</td>
+                    <th>邮箱</th>
+                    <td colspan="3">{{ project.applicant.email }}</td>
+                </tr>
+                <tr>
+                    <th rowspan="{{ project.member_set.count|add:1 }}">项目组成员</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>所属学科</th>
+                    <th>学历</th>
+                    <th>学位</th>
+                    <th>职称</th>
+                    <th>工作单位</th>
+                </tr>
+                {% for member in project.member_set.all %}
+                    <tr>
+                        <td>{{ member.name }}</td>
+                        <td>{{ member.gender.name }}</td>
+                        <td>{{ member.subject.name }}</td>
+                        <td>{{ member.education.name }}</td>
+                        <td>{{ member.degree.name }}</td>
+                        <td>{{ member.title.name }}</td>
+                        <td>{{ member.department.name }}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <th>研究的目的和意义</th>
+                    <td colspan="7" class="text-left">{{ project.purpose|safe|linebreaks }}</td>
+                </tr>
+                <tr>
+                    <th>研究内容</th>
+                    <td colspan="7" class="text-left">{{ project.content|safe|linebreaks }}</td>
+                </tr>
+                <tr>
+                    <th>研究进度</th>
+                    <td colspan="7" class="text-left">{{ project.progress|safe|linebreaks }}</td>
+                </tr>
+                <tr>
+                    <th>预期成果</th>
+                    <td colspan="7" class="text-left">{{ project.result|safe|linebreaks }}</td>
+                </tr>
+                <tr>
+                    <th>经费预算</th>
+                    <td colspan="7" class="text-left">{{ project.budget|safe|linebreaks }}</td>
+                </tr>
+                <tr>
+                    <th>学院审核意见</th>
+                    <td colspan="7" class="text-left">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <div class="text-center inscribe">
+                            <p>盖&nbsp;章&nbsp;</p>
+                            <p>{% now 'Y' %}年&nbsp;&nbsp;月&nbsp;&nbsp;日</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </main>
+        {% block form_after %}
+            <div class="w-4/5 text-center py-5">
+                <a href="{% url 'admin:project_pdf' pk=project.id %}" title="生成申请书"
+                   class="bg-green-500 text-white border border-transparent order font-medium px-3 py-2 rounded-md transition-all w-full lg:w-auto">
+                    生成PDF格式申请书
+                </a>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}
