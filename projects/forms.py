@@ -1,7 +1,6 @@
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
-from unfold.widgets import UnfoldAdminTextInputWidget, UnfoldAdminSelectWidget, UnfoldAdminFileFieldWidget, \
-    UnfoldAdminSingleDateWidget
+from unfold.widgets import UnfoldAdminTextInputWidget, UnfoldAdminSelectWidget, UnfoldAdminSingleDateWidget
 
 from projects.models import Information, Member
 from settings.models import Type, Subject, Gender, Education, Degree, Title, Department
@@ -37,9 +36,10 @@ class InformationForm(forms.ModelForm):
     progress = forms.CharField(label='研究进度', widget=CKEditorUploadingWidget, required=False)
     result = forms.CharField(label='预期成果', widget=CKEditorUploadingWidget, required=False)
     budget = forms.CharField(label='经费预算', widget=CKEditorUploadingWidget, required=False)
-    application_attachment = forms.FileField(label='项目申请书', widget=UnfoldAdminFileFieldWidget, required=False)
+
+    # application_attachment = forms.FileField(label='项目申请书', widget=UnfoldAdminFileFieldWidget, required=False)
 
     class Meta:
         model = Information
         fields = ['name', 'beg_year', 'end_year', 'type', 'subject', 'direction', 'purpose', 'content', 'progress',
-                  'result', 'budget', 'application_attachment']
+                  'result', 'budget']

@@ -14,6 +14,7 @@ from pathlib import Path
 
 from ckeditor_demo.settings import CKEDITOR_CONFIGS
 from django.urls import reverse_lazy
+from openpyxl.styles import fonts
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -115,6 +116,7 @@ LOCALE_PATHS = [
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
@@ -295,7 +297,15 @@ UNFOLD = {
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'full'
+        'toolbar': 'full',
+        'font_names': '宋体/华文宋体;黑体'
+    }
+}
+
+WEASYPRINT_CONFIG = {
+    'FONT_PATHS': {
+        os.path.join(os.path.dirname(__file__), 'fonts'),
+        'C:/Windows/Fonts'
     }
 }
 

@@ -53,18 +53,19 @@ class InformationAdmin(ModelAdmin):
 
     @display(description='项目申请书')
     def get_application(self, obj):
-        return (
-            format_html(
-                '<a href="{0}" alt="{1}" title="{1}" target="_blank" class="text-primary-600">{1}</a>',
-                obj.application_attachment.url,
-                "查看",
+        if obj.application_attachment:
+            return (
+                format_html(
+                    '<a href="{0}" alt="{1}" title="{1}" target="_blank" class="text-primary-600">{1}</a>',
+                    obj.application_attachment.url,
+                    "查看",
+                )
+                if obj.application_attachment
+                else format_html(
+                    '<div class="flex items-center"><div class="block mr-3 outline rounded-full ml-1 h-1 w-1 bg-red-500 outline-red-200 outline-red-500/20"></div><span>{}</span></div>'.format(
+                        "未上传")
+                )
             )
-            if obj.application_attachment
-            else format_html(
-                '<div class="flex items-center"><div class="block mr-3 outline rounded-full ml-1 h-1 w-1 bg-red-500 outline-red-200 outline-red-500/20"></div><span>{}</span></div>'.format(
-                    "未上传")
-            )
-        )
 
     @display(description='是否提交')
     def get_confirmed(self, obj):
@@ -101,16 +102,22 @@ class InformationAdmin(ModelAdmin):
     @display(description='编辑')
     def edit_button(self, obj):
         if Setting.objects.filter(year=obj.year, series=obj.series, is_opened=True).exists():
-            return format_html(
-                '<a href="{}" title="编辑" class="bg-primary-600 border border-transparent flex flex-row font-light group items-center justify-center py-1 rounded-md text-xs text-white w-full">编辑</a>',
-                reverse_lazy('admin:projects_information_change', args=(obj.id,)))
+            if obj.is_confirmed:
+                return '已提交'
+            else:
+                return format_html(
+                    '<a href="{}" title="编辑" class="bg-primary-600 border border-transparent flex flex-row font-light group items-center justify-center py-1 rounded-md text-xs text-white w-full">编辑</a>',
+                    reverse_lazy('admin:projects_information_change', args=(obj.id,)))
 
     @display(description='删除')
     def delete_button(self, obj):
         if Setting.objects.filter(year=obj.year, series=obj.series, is_opened=True).exists():
-            return format_html(
-                '<a href="{}" title="删除" class="bg-red-600 border border-transparent flex flex-row font-light group items-center justify-center py-1 rounded-md text-xs text-white w-full">删除</a>',
-                reverse_lazy('admin:projects_information_delete', args=(obj.id,)))
+            if obj.is_confirmed:
+                return '已提交'
+            else:
+                return format_html(
+                    '<a href="{}" title="删除" class="bg-red-600 border border-transparent flex flex-row font-light group items-center justify-center py-1 rounded-md text-xs text-white w-full">删除</a>',
+                    reverse_lazy('admin:projects_information_delete', args=(obj.id,)))
 
     def get_urls(self) -> List[URLPattern]:
         return super().get_urls() + [
